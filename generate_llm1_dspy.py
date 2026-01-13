@@ -36,12 +36,17 @@ teacher_llm = dspy.LM(model="openai/gpt-4o", api_key=openai_api_key)
 
 # Define the signature for relevance checking
 class RelevanceCheck(dspy.Signature):
-    """Check if a user query mentions a target company in a contract.
-    If a target company is identified, output: 'The target company is [Company Name].'
-    If no target company is found, output: '<user_message>Query is not relevant to the intended task.</user_message>'"""
+    """Analyze the user's contract query to identify a target company.
+
+    1. If a target company is identified, output: 'The target company is [Company Name].'
+    2. If no target company is found, you MUST output EXACTLY:
+    <user_message>Query is not relevant to the intended task.</user_message>
+    
+    IMPORTANT: Do not miss the <user_message> tags in the negative case.
+    """
     
     query = dspy.InputField(desc="The user's query about a contract")
-    output = dspy.OutputField(desc="Either 'The target company is [Company Name].' or '<user_message>Query is not relevant to the intended task.</user_message>'")
+    output = dspy.OutputField(desc="The final answer. Ensure exact XML format for negative cases.")
 
 # Create training examples from the training data (70%)
 training_examples = []
