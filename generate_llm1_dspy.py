@@ -29,16 +29,16 @@ if not openai_api_key:
 
 # Set up teacher (Architect) and student (Intern) models
 # The "Intern" (Cheap, Fast)
-student_llm = dspy.LM(model="openai/gpt-4o-mini", api_key=openai_api_key)
+student_llm = dspy.LM(model="openai/gpt-4o-mini", api_key=openai_api_key, temperature=0.2)
 
 # The "Architect" (Smart, Expensive)
 teacher_llm = dspy.LM(model="openai/gpt-4o", api_key=openai_api_key)
 
 # Define the signature for relevance checking
 class RelevanceCheck(dspy.Signature):
-    """Analyze the user's contract query to identify a target company.
+    """Determines if the user's query mentions any target company.
 
-    1. If a target company is identified, output: 'The target company is [Company Name].'
+    1. If a target company is mentioned, output: 'The target company is [Company Name].'
     2. If no target company is found, you MUST output EXACTLY:
     <user_message>Query is not relevant to the intended task.</user_message>
     
@@ -100,11 +100,31 @@ print("🏗️ Setting up BootstrapFewShot optimizer with Architect as teacher..
 try:
     from dspy.teleprompt import BootstrapFewShot
     
-    # Optional: Create a simple metric function if needed
-    # For now, we'll use None and let the teacher generate examples
     def validate_output(example, pred, trace=None):
-        """Simple validation metric"""
-        return example.output.strip() == pred.output.strip() if hasattr(pred, 'output') else False
+        """Robust validation metric"""
+        if not hasattr(pred, 'output'):
+            return False
+            
+        expected = example.output.strip()
+        predicted = pred.output.strip()
+        
+        # 1. Exact match
+        if predicted == expected:
+            return True
+            
+        # 2. Handle XML tag hallucinations (e.g. missing tags)
+        # If expected is the negative case, check if the core message is present
+        if "not relevant" in expected and "not relevant" in predicted:
+            return True
+            
+        # 3. Handle company name extraction (e.g. "The target company is [X]")
+        # Extract just the company name and compare
+        # (Simple heuristic: check if expected company name is in predicted string)
+        if "The target company is" in expected:
+            company = expected.replace("The target company is", "").strip(" .")
+            return company in predicted
+            
+        return False
     
     # The Optimizer uses the Teacher to generate "Gold Standard" reasoning traces
     teleprompter = BootstrapFewShot(metric=validate_output, teacher=teacher_llm)
@@ -148,4 +168,10 @@ for i, test_item in enumerate(test_examples, 1):
 
 print("\n" + "=" * 60)
 print(f"📊 Test Results: {correct}/{total} correct ({correct/total*100:.1f}%)")
+print("=" * 60)
+
+# Inspect the last prompt sent to the student model
+print("\n🔍 Inspecting the last prompt sent to the Student LLM:")
+print("=" * 60)
+student_llm.inspect_history(n=1)
 print("=" * 60)

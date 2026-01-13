@@ -1,0 +1,47 @@
+
+System message:
+
+Your input fields are:
+1. `query` (str): The user's query about a contract
+Your output fields are:
+1. `reasoning` (str): 
+2. `output` (str): The final answer. Ensure exact XML format for negative cases.
+All interactions will be structured in the following way, with the appropriate values filled in.
+
+[[ ## query ## ]]
+{query}
+
+[[ ## reasoning ## ]]
+{reasoning}
+
+[[ ## output ## ]]
+{output}
+
+[[ ## completed ## ]]
+In adhering to this structure, your objective is: 
+        Determines if the user's query mentions any target company.
+        
+        1. If a target company is mentioned, output: 'The target company is [Company Name].'
+        2. If no target company is found, you MUST output EXACTLY:
+        <user_message>Query is not relevant to the intended task.</user_message>
+        
+        IMPORTANT: Do not miss the <user_message> tags in the negative case.
+
+
+User message:
+
+[[ ## query ## ]]
+I believe this contract has nothing to do with Xiaomi?
+
+Respond with the corresponding output fields, starting with the field `[[ ## reasoning ## ]]`, then `[[ ## output ## ]]`, and then ending with the marker for `[[ ## completed ## ]]`.
+
+
+Response:
+
+[[ ## reasoning ## ]]
+The user's query mentions "Xiaomi," which is a target company. Therefore, the output should indicate that the target company is Xiaomi.
+
+[[ ## output ## ]]
+The target company is Xiaomi.
+
+[[ ## completed ## ]]
