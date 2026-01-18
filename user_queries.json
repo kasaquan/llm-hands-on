@@ -138,5 +138,417 @@
   {
     "query": "Is Shopify mentioned as the target company?",
     "expected_output": "The target company is Shopify."
+  },
+  {
+    "query": "Find any reference to Uber Technologies in this contract.",
+    "expected_output": "The target company is Uber Technologies."
+  },
+  {
+    "query": "What are the confidentiality obligations?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "I'm checking if this document talks about Airbnb Inc.",
+    "expected_output": "The target company is Airbnb Inc."
+  },
+  {
+    "query": "How many pages is this document?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "Does the agreement mention Twitter or X Corp?",
+    "expected_output": "The target company is Twitter."
+  },
+  {
+    "query": "What's the best restaurant in New York?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "Is there any mention of Snap Inc. in this contract?",
+    "expected_output": "The target company is Snap Inc."
+  },
+  {
+    "query": "What are the warranty terms?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "This contract definitely mentions Spotify Technology, right?",
+    "expected_output": "The target company is Spotify Technology."
+  },
+  {
+    "query": "Can you help me with my homework?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "I need to verify if Dropbox is referenced as the target.",
+    "expected_output": "The target company is Dropbox."
+  },
+  {
+    "query": "What's the exchange rate for USD to EUR?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "Does this document reference Square Inc.?",
+    "expected_output": "The target company is Square Inc."
+  },
+  {
+    "query": "What are the assignment rights in this agreement?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "I see references to both PayPal and Venmo - which is the target?",
+    "expected_output": "The target company is PayPal."
+  },
+  {
+    "query": "How do I reset my password?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "Is Atlassian Corporation mentioned in this contract?",
+    "expected_output": "The target company is Atlassian Corporation."
+  },
+  {
+    "query": "What are the dispute resolution procedures?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "Check if this agreement talks about Workday Inc.",
+    "expected_output": "The target company is Workday Inc."
+  },
+  {
+    "query": "What's the recipe for chocolate chip cookies?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "I believe this contract mentions ServiceNow, doesn't it?",
+    "expected_output": "The target company is ServiceNow."
+  },
+  {
+    "query": "What are the intellectual property rights?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "Does the document reference Splunk Inc.?",
+    "expected_output": "The target company is Splunk Inc."
+  },
+  {
+    "query": "What's the weather forecast for tomorrow?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "Is there any mention of CrowdStrike Holdings in this agreement?",
+    "expected_output": "The target company is CrowdStrike Holdings."
+  },
+  {
+    "query": "What are the non-compete provisions?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "This contract is about Datadog, correct?",
+    "expected_output": "The target company is Datadog."
+  },
+  {
+    "query": "How do I install Python?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "I'm looking for references to Okta Inc. in this document.",
+    "expected_output": "The target company is Okta Inc."
+  },
+  {
+    "query": "What are the force majeure clauses?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "Does this mention Zscaler or Cloudflare?",
+    "expected_output": "The target company is Zscaler."
+  },
+  {
+    "query": "What's the meaning of life?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "Is Fastly Inc. the target company in this contract?",
+    "expected_output": "The target company is Fastly Inc."
+  },
+  {
+    "query": "What are the representations and warranties?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "I need to confirm if this agreement references MongoDB Inc.",
+    "expected_output": "The target company is MongoDB Inc."
+  },
+  {
+    "query": "What's the latest news about AI?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "Check whether Elastic N.V. appears in this contract.",
+    "expected_output": "The target company is Elastic N.V."
+  },
+  {
+    "query": "What are the conditions precedent?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "This document mentions both Snowflake and Databricks - which is the target?",
+    "expected_output": "The target company is Snowflake."
+  },
+  {
+    "query": "How do I learn Spanish?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "Is there any reference to Unity Software in this agreement?",
+    "expected_output": "The target company is Unity Software."
+  },
+  {
+    "query": "What are the closing conditions?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "I want to verify if Twilio is mentioned as the target company.",
+    "expected_output": "The target company is Twilio."
+  },
+  {
+    "query": "What's the best programming language?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "Does this contract reference DocuSign Inc.?",
+    "expected_output": "The target company is DocuSign Inc."
+  },
+  {
+    "query": "What are the material adverse change provisions?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "I see mentions of both Roku and Chromecast - which one is the target?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "What's the stock price of Apple?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "Is Peloton Interactive mentioned in this document?",
+    "expected_output": "The target company is Peloton Interactive."
+  },
+  {
+    "query": "What are the escrow arrangements?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "This agreement definitely talks about DoorDash, doesn't it?",
+    "expected_output": "The target company is DoorDash."
+  },
+  {
+    "query": "How do I make coffee?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "I'm checking if this contract mentions Instacart.",
+    "expected_output": "The target company is Instacart."
+  },
+  {
+    "query": "What are the earnout provisions?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "Does the document reference Roblox Corporation?",
+    "expected_output": "The target company is Roblox Corporation."
+  },
+  {
+    "query": "What's the population of Tokyo?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "Is there any mention of Coinbase Global in this agreement?",
+    "expected_output": "The target company is Coinbase Global."
+  },
+  {
+    "query": "What are the post-closing obligations?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "I believe this contract has nothing to do with Block Inc., correct?",
+    "expected_output": "The target company is Block Inc."
+  },
+  {
+    "query": "What are the key performance indicators?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "Check if this document talks about Affirm Holdings.",
+    "expected_output": "The target company is Affirm Holdings."
+  },
+  {
+    "query": "What's the distance from Earth to Mars?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "Does the agreement mention Rivian Automotive?",
+    "expected_output": "The target company is Rivian Automotive."
+  },
+  {
+    "query": "What are the regulatory approvals required?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "I see references to both Lucid Motors and Tesla - which is the target?",
+    "expected_output": "The target company is Lucid Motors."
+  },
+  {
+    "query": "What's the best way to learn machine learning?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "Is there any reference to Nio Inc. in this contract?",
+    "expected_output": "The target company is Nio Inc."
+  },
+  {
+    "query": "What are the antitrust considerations?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "This contract mentions Waymo, doesn't it?",
+    "expected_output": "The target company is Waymo."
+  },
+  {
+    "query": "How do I change a tire?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "I need to verify if Cruise LLC is the target company here.",
+    "expected_output": "The target company is Cruise LLC."
+  },
+  {
+    "query": "What are the data privacy requirements?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "Does this document reference Argo AI?",
+    "expected_output": "The target company is Argo AI."
+  },
+  {
+    "query": "What's the fastest car in the world?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "I'm looking for any mention of Aurora Innovation in the agreement.",
+    "expected_output": "The target company is Aurora Innovation."
+  },
+  {
+    "query": "What are the cybersecurity requirements?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "This agreement has nothing to do with Zoox, does it?",
+    "expected_output": "The target company is Zoox."
+  },
+  {
+    "query": "What's the tallest mountain on Earth?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "Can you tell me if Pony.ai is mentioned as the target?",
+    "expected_output": "The target company is Pony.ai."
+  },
+  {
+    "query": "What are the environmental compliance obligations?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "I see mentions of both Mobileye and Tesla - which one is the target?",
+    "expected_output": "The target company is Mobileye."
+  },
+  {
+    "query": "What's the best movie of 2023?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "Is there any reference to Luminar Technologies in this contract?",
+    "expected_output": "The target company is Luminar Technologies."
+  },
+  {
+    "query": "What are the employee retention provisions?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "Check whether Velodyne Lidar appears in this document.",
+    "expected_output": "The target company is Velodyne Lidar."
+  },
+  {
+    "query": "How do I train a neural network?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "I want to confirm if Innoviz Technologies is referenced here.",
+    "expected_output": "The target company is Innoviz Technologies."
+  },
+  {
+    "query": "What are the change of control provisions?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "Does this mention Aeva Technologies or Ouster?",
+    "expected_output": "The target company is Aeva Technologies."
+  },
+  {
+    "query": "What's the speed of light?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "This contract is definitely about Quanergy Systems, right?",
+    "expected_output": "The target company is Quanergy Systems."
+  },
+  {
+    "query": "What are the tax implications?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "I'm checking if this document talks about LeddarTech.",
+    "expected_output": "The target company is LeddarTech."
+  },
+  {
+    "query": "What's the best way to cook pasta?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "Is there any mention of Cepton Inc. in this agreement?",
+    "expected_output": "The target company is Cepton Inc."
+  },
+  {
+    "query": "What are the working capital adjustments?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "Does the document reference Baraja Pty Ltd?",
+    "expected_output": "The target company is Baraja Pty Ltd."
+  },
+  {
+    "query": "What's the largest ocean?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "I need to verify if this contract mentions Hesai Group.",
+    "expected_output": "The target company is Hesai Group."
+  },
+  {
+    "query": "What are the transition services arrangements?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "This agreement mentions both Ibeo and Continental - which is the target?",
+    "expected_output": "The target company is Ibeo."
+  },
+  {
+    "query": "How do I write a resume?",
+    "expected_output": "<user_message>Query is not relevant to the intended task.</user_message>"
+  },
+  {
+    "query": "Is there any reference to Blickfeld GmbH in this contract?",
+    "expected_output": "The target company is Blickfeld GmbH."
   }
 ]

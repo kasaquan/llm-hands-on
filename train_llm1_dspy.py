@@ -104,7 +104,7 @@ class RelevanceModule(dspy.Module):
         self.relevance_checker = dspy.ChainOfThought(RelevanceCheck)
     
     def forward(self, query):
-        result = self.relevance_checker(query=query)
+        result = self.relevance_checker(query=query)            
         return result.output
 
 print("🔨 Using Architect & Intern pattern to generate LLM1 prompt...")
@@ -128,10 +128,12 @@ def validate_output(example, pred, trace=None):
     """
     # MIPROv2 passes the prediction object from the Signature
     # Since RelevanceCheck has 'output' field, pred should have pred.output
-    if not hasattr(pred, 'output'):
-        return False
+    # However, RelevanceModule.forward returns the string output directly, so we need to handle both cases
+    if hasattr(pred, 'output'):
+        predicted = str(pred.output).strip() if pred.output is not None else ""
+    else:
+        predicted = str(pred).strip()
     
-    predicted = str(pred.output).strip() if pred.output else ""
     expected = str(example.output).strip()
     
     # 1. Exact match
@@ -154,48 +156,56 @@ def validate_output(example, pred, trace=None):
 
 # Use MIPROv2 optimizer for production with gpt-4o-mini
 print("🏗️ Setting up MIPROv2 optimizer...")
-print("   MIPROv2 is recommended for production with gpt-4o-mini:")
-print("   - Faster convergence")
-print("   - Lower cost")
-print("   - Good for structured tasks like entity extraction\n")
+compiled_model_path = "llm1_optimized.json"
 
-try:
-    from dspy.teleprompt import MIPROv2
-    
-    # MIPROv2 with auto="light" for cost-effective optimization
-    # You can use "medium" or "heavy" for better results but higher cost
-    # prompt_model: uses teacher to generate instruction proposals
-    # task_model: uses student to evaluate candidates (optimize for production model)
-    # Note: When auto is set, num_candidates and num_trials are set automatically
-    teleprompter = MIPROv2(
-        metric=validate_output,
-        prompt_model=teacher_llm,  # Teacher generates instruction proposals
-        task_model=student_llm,     # Student evaluates candidates (optimize for production)
-        auto="light",  # Options: "light", "medium", "heavy" (auto sets num_candidates)
-        init_temperature=1.0
-    )
-    
-    print("🔄 Compiling module with MIPROv2...")
-    print("   (This may take a few minutes and will use API calls)\n")
-    
-    optimized_program = teleprompter.compile(
-        student=intern_module,
-        trainset=training_examples,
-        valset=validation_examples  # Separate validation set (20 examples)
-    )
-    
-    print("✅ Module optimized successfully with MIPROv2!\n")
-    
-except ImportError:
-    print("⚠️  MIPROv2 not available. Trying BootstrapFewShot as fallback...")
-    from dspy.teleprompt import BootstrapFewShot
-    teleprompter = BootstrapFewShot(metric=validate_output, teacher=teacher_llm)
-    optimized_program = teleprompter.compile(student=intern_module, trainset=training_examples)
-    print("✅ Module optimized with BootstrapFewShot!\n")
-except Exception as e:
-    print(f"⚠️  Error with MIPROv2: {e}")
-    print("   Falling back to basic module...")
+if os.path.exists(compiled_model_path):
+    print(f"📂 Loading optimized model from {compiled_model_path}...")
+    intern_module.load(compiled_model_path)
     optimized_program = intern_module
+    print("✅ Model loaded successfully!\n")
+else:
+    try:
+        from dspy.teleprompt import MIPROv2
+        
+        # MIPROv2 with auto="light" for cost-effective optimization
+        # You can use "medium" or "heavy" for better results but higher cost
+        # prompt_model: uses teacher to generate instruction proposals
+        # task_model: uses student to evaluate candidates (optimize for production model)
+        # Note: When auto is set, num_candidates and num_trials are set automatically
+        teleprompter = MIPROv2(
+            metric=validate_output,
+            prompt_model=teacher_llm,  # Teacher generates instruction proposals
+            task_model=student_llm,     # Student evaluates candidates (optimize for production)
+            auto="medium",  # Options: "light", "medium", "heavy" (auto sets num_candidates)
+            init_temperature=1.0
+        )
+        
+        print("🔄 Compiling module with MIPROv2...")
+        print("   (This may take a few minutes and will use API calls)\n")
+        
+        optimized_program = teleprompter.compile(
+            student=intern_module,
+            trainset=training_examples,
+            valset=validation_examples  # Separate validation set (20 examples)
+        )
+        
+        print("✅ Module optimized successfully with MIPROv2!\n")
+        
+    except ImportError:
+        print("⚠️  MIPROv2 not available. Trying BootstrapFewShot as fallback...")
+        from dspy.teleprompt import BootstrapFewShot
+        teleprompter = BootstrapFewShot(metric=validate_output, teacher=teacher_llm)
+        optimized_program = teleprompter.compile(student=intern_module, trainset=training_examples)
+        print("✅ Module optimized with BootstrapFewShot!\n")
+    except Exception as e:
+        print(f"⚠️  Error with MIPROv2: {e}")
+        print("   Falling back to basic module...")
+        optimized_program = intern_module
+
+    # Save the optimized program
+    print(f"💾 Saving optimized model to {compiled_model_path}...")
+    optimized_program.save(compiled_model_path)
+    print("✅ Model saved!\n")
 
 # Test the optimized module on the test set
 print("🧪 Testing Optimized Module (GPT-4o-mini) on test set:")
@@ -229,10 +239,16 @@ print("\n" + "=" * 80)
 print("📋 EXTRACTING COMPLETE PRODUCTION PROMPT")
 print("=" * 80)
 
+# 1. Print the instructions and demos from the optimized predictor
 for name, pred in optimized_program.named_predictors():
-    print("================================")
-    print(f"Predictor: {name}")
-    print("================================")
-    print("Prompt:")
-    print(pred.signature.instructions)
-    print("*********************************")
+    print(f"\nPredictor: {name}")
+    print("-" * 40)
+    print(f"Instructions: {pred.signature.instructions}")
+    print(f"Number of Few-Shot Examples (Demos): {len(pred.demos)}")
+    print("-" * 40)
+    
+# 2. Inspect the history of the student LLM to see the EXACT full prompt sent
+print("\n👀 VIEWING LAST ACTUAL LLM PROMPT (What was sent to the API)")
+print("=" * 80)
+student_llm.inspect_history(n=1)
+print("=" * 80)
