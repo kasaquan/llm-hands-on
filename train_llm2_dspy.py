@@ -3,6 +3,7 @@ import json
 import os
 import random
 import warnings
+import mlflow
 
 # Suppress Pydantic serialization warnings (non-critical)
 warnings.filterwarnings("ignore", category=UserWarning, module="pydantic")
@@ -39,6 +40,7 @@ class AnalyzeParagraph(dspy.Signature):
     """
     Analyzes a paragraph from a legal file to extract required specific entities relative to the target company.
     If an entity is not mentioned, use 'Not stated'.
+    If an entity does not have a name, use 'Not stated', don't use 'the Company', 'the Purchaser', 'the Investor', etc.
     """
     paragraph = dspy.InputField(desc="One paragraph from the contract")
     target_company = dspy.InputField(desc="The identified target company from Step 1")
@@ -69,27 +71,52 @@ class AggregateResults(dspy.Signature):
 # Create training examples
 training_examples = []
 for item in train_data:
-    expected = item['expected_output']
+    answer = item['answer']
     training_examples.append(
         dspy.Example(
             paragraph=item['paragraph'],
             target_company=item['target_company'],
-            buyer=expected['buyer'],
-            buyer_representative=expected['buyer_representative'],
-            seller=expected['seller'],
-            seller_representative=expected['seller_representative'],
-            third_party_representation=expected['third_party_representation'],
-            target_company_mentioned=expected['target_company_mentioned']
+            buyer=answer.get('Buyer', 'Not stated'),
+            buyer_representative=answer.get('Buyer Representative', 'Not stated'),
+            seller=answer.get('Seller', 'Not stated'),
+            seller_representative=answer.get('Seller Representative', 'Not stated'),
+            third_party_representation=answer.get('Third-Party Representation', 'Not stated'),
+            target_company_mentioned=answer.get('Target Company Mentioned', 'No')
         ).with_inputs("paragraph", "target_company")
     )
 
-# Create test examples
+# Create validation examples (for MIPROv2) - must be dspy.Example objects
+val_examples = []
+for item in test_data[:10] if len(test_data) > 10 else test_data:  # Use subset for validation
+    answer = item['answer']
+    val_examples.append(
+        dspy.Example(
+            paragraph=item['paragraph'],
+            target_company=item['target_company'],
+            buyer=answer.get('Buyer', 'Not stated'),
+            buyer_representative=answer.get('Buyer Representative', 'Not stated'),
+            seller=answer.get('Seller', 'Not stated'),
+            seller_representative=answer.get('Seller Representative', 'Not stated'),
+            third_party_representation=answer.get('Third-Party Representation', 'Not stated'),
+            target_company_mentioned=answer.get('Target Company Mentioned', 'No')
+        ).with_inputs("paragraph", "target_company")
+    )
+
+# Create test examples (for final evaluation) - keep as dicts for easier testing
 test_examples = []
 for item in test_data:
+    answer = item['answer']
     test_examples.append({
         'paragraph': item['paragraph'],
         'target_company': item['target_company'],
-        'expected_output': item['expected_output']
+        'expected_output': {
+            'buyer': answer.get('Buyer', 'Not stated'),
+            'buyer_representative': answer.get('Buyer Representative', 'Not stated'),
+            'seller': answer.get('Seller', 'Not stated'),
+            'seller_representative': answer.get('Seller Representative', 'Not stated'),
+            'third_party_representation': answer.get('Third-Party Representation', 'Not stated'),
+            'target_company_mentioned': answer.get('Target Company Mentioned', 'No')
+        }
     })
 
 # Create the module
@@ -98,6 +125,7 @@ class ParagraphAnalysisModule(dspy.Module):
         super().__init__()
         self.analyzer = dspy.ChainOfThought(AnalyzeParagraph)
     
+    @mlflow.trace()
     def forward(self, paragraph, target_company):
         result = self.analyzer(paragraph=paragraph, target_company=target_company)
         return result
@@ -112,69 +140,85 @@ module = ParagraphAnalysisModule()
 
 # Validation metric
 def validate_output(example, pred, trace=None):
-    """Validate entity extraction results"""
-    if not hasattr(pred, 'buyer'):
-        return False
+    """
+    MIPROv2 metric function: (example, pred, trace=None) -> float
     
-    # Check each field
+    Returns a normalized score from 0.0 to 1.0 based on how many fields are correct.
+    Each correct field = 1/6 points, normalized to 0.0-1.0 range.
+    """
     fields = ['buyer', 'buyer_representative', 'seller', 'seller_representative', 
               'third_party_representation', 'target_company_mentioned']
     
-    all_correct = True
-    for field in fields:
-        expected = getattr(example, field, "").strip()
-        predicted = getattr(pred, field, "").strip()
-        
-        # Allow some flexibility for "Not stated" variations
-        if expected == "Not stated":
-            if predicted.lower() in ["not stated", "none", "n/a", ""]:
-                continue
-        
-        if predicted != expected:
-            all_correct = False
-            break
+    max_score = len(fields)
+    score = 0.0
     
-    return all_correct
+    for field in fields:
+        # Skip if field doesn't exist
+        if not hasattr(pred, field):
+            continue
+        
+        expected_val = getattr(example, field, "").strip()
+        predicted_val = getattr(pred, field, "").strip()
+        
+        # Check if field is correct (case-insensitive matching)
+        if expected_val.lower() == predicted_val.lower():
+            score += 1.0
+    
+    # Normalize to 0.0-1.0 range
+    return score / max_score if max_score > 0 else 0.0
 
 # Use MIPROv2 optimizer for production with gpt-4o-mini
 print("🏗️ Setting up MIPROv2 optimizer...")
-try:
-    from dspy.teleprompt import MIPROv2
-    
-    # MIPROv2 with auto="light" for cost-effective optimization
-    # You can use "medium" or "heavy" for better results but higher cost
-    # prompt_model: uses teacher to generate instruction proposals
-    # task_model: uses student to evaluate candidates (optimize for production model)
-    # Note: When auto is set, num_candidates and num_trials are set automatically
-    teleprompter = MIPROv2(
-        metric=validate_output,
-        prompt_model=teacher_llm,  # Teacher generates instruction proposals
-        task_model=student_llm,     # Student evaluates candidates (optimize for production)
-        auto="light",  # Options: "light", "medium", "heavy" (auto sets num_candidates)
-        init_temperature=1.0
-    )
-    
-    print("🔄 Compiling module with MIPROv2...")
-    print("   (This may take a few minutes and will use API calls)\n")
-    
-    optimized_program = teleprompter.compile(
-        student=module,
-        trainset=training_examples,
-        valset=test_examples[:5] if len(test_examples) > 5 else test_examples  # Small validation set
-    )
-    
-    print("✅ Module optimized successfully with MIPROv2!\n")
-    
-except ImportError:
-    print("⚠️  MIPROv2 not available. Trying BootstrapFewShot as fallback...")
-    from dspy.teleprompt import BootstrapFewShot
-    teleprompter = BootstrapFewShot(metric=validate_output, teacher=teacher_llm)
-    optimized_program = teleprompter.compile(student=module, trainset=training_examples)
-    print("✅ Module optimized with BootstrapFewShot!\n")
-except Exception as e:
-    print(f"⚠️  Error with MIPROv2: {e}")
-    print("   Falling back to basic module...")
+compiled_model_path = "llm2_optimized.json"
+
+if os.path.exists(compiled_model_path):
+    print(f"📂 Loading optimized model from {compiled_model_path}...")
+    module.load(compiled_model_path)
     optimized_program = module
+    print("✅ Model loaded successfully!\n")
+else:
+    try:
+        from dspy.teleprompt import MIPROv2
+        
+        # MIPROv2 with auto="light" for cost-effective optimization
+        # You can use "medium" or "heavy" for better results but higher cost
+        # prompt_model: uses teacher to generate instruction proposals
+        # task_model: uses student to evaluate candidates (optimize for production model)
+        # Note: When auto is set, num_candidates and num_trials are set automatically
+        teleprompter = MIPROv2(
+            metric=validate_output,
+            prompt_model=teacher_llm,  # Teacher generates instruction proposals
+            task_model=student_llm,     # Student evaluates candidates (optimize for production)
+            auto="medium",  # Options: "light", "medium", "heavy" (auto sets num_candidates)
+            init_temperature=1.0
+        )
+        
+        print("🔄 Compiling module with MIPROv2...")
+        print("   (This may take a few minutes and will use API calls)\n")
+        
+        optimized_program = teleprompter.compile(
+            student=module,
+            trainset=training_examples,
+            valset=val_examples  # Validation set as dspy.Example objects
+        )
+        
+        print("✅ Module optimized successfully with MIPROv2!\n")
+        
+    except ImportError:
+        print("⚠️  MIPROv2 not available. Trying BootstrapFewShot as fallback...")
+        from dspy.teleprompt import BootstrapFewShot
+        teleprompter = BootstrapFewShot(metric=validate_output, teacher=teacher_llm)
+        optimized_program = teleprompter.compile(student=module, trainset=training_examples)
+        print("✅ Module optimized with BootstrapFewShot!\n")
+    except Exception as e:
+        print(f"⚠️  Error with MIPROv2: {e}")
+        print("   Falling back to basic module...")
+        optimized_program = module
+    
+    # Save the optimized program
+    print(f"💾 Saving optimized model to {compiled_model_path}...")
+    optimized_program.save(compiled_model_path)
+    print("✅ Model saved!\n")
 
 # Test the optimized module on the test set
 print("🧪 Testing Optimized Module (GPT-4o-mini) on test set:")
@@ -214,8 +258,12 @@ for i, test_item in enumerate(test_examples, 1):
         status = "✅" if all_match else "❌"
         print(f"\n{status} Test {i}/{total}")
         print(f"   Target: {target_company[:50]}...")
-        print(f"   Buyer: Expected '{expected['buyer']}' | Got '{getattr(result, 'buyer', 'N/A')}'")
-        print(f"   Target mentioned: Expected '{expected['target_company_mentioned']}' | Got '{getattr(result, 'target_company_mentioned', 'N/A')}'")
+        print(f"   Paragraph: {paragraph[:200]}{'...' if len(paragraph) > 200 else ''}")
+        for field in fields:
+            expected_val = expected[field]
+            predicted_val = getattr(result, field, 'N/A')
+            match_indicator = "✓" if expected_val.strip().lower() == str(predicted_val).strip().lower() else "✗"
+            print(f"   {match_indicator} {field}: Expected '{expected_val}' | Got '{predicted_val}'")
         
     except Exception as e:
         print(f"\n❌ Error with test {i}: {e}")
