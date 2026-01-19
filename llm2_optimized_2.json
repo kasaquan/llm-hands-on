@@ -1,0 +1,101 @@
+{
+  "analyzer.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "paragraph": "Subject to the terms and conditions of this Agreement, each Purchaser agrees to purchase at the Closing and China Risk Finance LLC agrees to sell and issue to each Purchaser at the Closing that number of Series C Preferred Shares set forth opposite each Purchaser's name on Schedule I at a purchase price of $26.64 per share. The Series C Preferred Shares issued to the Purchasers pursuant to this Agreement shall be referred to in this Agreement as the \"Shares\".",
+        "target_company": "The target company is China Risk Finance LLC.",
+        "reasoning": "The paragraph explicitly mentions \"China Risk Finance LLC\" as the seller in the context of the sale of Series C Preferred Shares. The Purchasers are referred to collectively but not individually named, and no specific buyer representative or seller representative is mentioned.",
+        "buyer": "Not stated",
+        "buyer_representative": "Not stated",
+        "seller": "China Risk Finance LLC",
+        "seller_representative": "Not stated",
+        "third_party_representation": "Not stated",
+        "target_company_mentioned": "Yes"
+      },
+      {
+        "augmented": true,
+        "paragraph": "All references to the singular include the plural and vice versa, and all references to any gender include all genders. The Parties agree that any ambiguities in the language of this Agreement shall not be construed against either Party. Section headings used in this Agreement are for reference only and shall not affect the meaning or interpretation of any provision. The language used in this Agreement shall be deemed to be the language chosen by the parties to express their mutual intent, and no rule of strict construction shall be applied against any party.",
+        "target_company": "The target company is Google.",
+        "reasoning": "The paragraph discusses the interpretation of the Agreement and does not mention any specific buyer or seller entities. It focuses on the language and intent of the parties involved in the Agreement. The target company, Google, is not explicitly mentioned in the context of being a buyer or seller.",
+        "buyer": "Not stated",
+        "buyer_representative": "Not stated",
+        "seller": "Not stated",
+        "seller_representative": "Not stated",
+        "third_party_representation": "Not stated",
+        "target_company_mentioned": "No"
+      },
+      {
+        "paragraph": "At the Closing, the Company shall sell, transfer, assign and deliver to Buyer, and Buyer shall purchase, accept, assume and receive, all right, title and interest in and to the Purchased Assets as of the Closing whether tangible or intangible, personal and located in the United States and possessed by the Company, free and clear of any lien, mortgage, security interest or other encumbrance. The Purchased Assets include all customer deposits for weddings, albums, and associated products and services received by the Company prior to the Closing that relate to the Transferred Contracts, all accounts receivable relating to Transferred Contracts, and all rights in, to and under the Contracts set forth on the schedules, including all open customer orders set forth thereon and all receivables due after the Closing Date pursuant to such Contracts.",
+        "target_company": "The target company is Google.",
+        "buyer": "Not stated",
+        "buyer_representative": "Not stated",
+        "seller": "Not stated",
+        "seller_representative": "Not stated",
+        "third_party_representation": "Not stated",
+        "target_company_mentioned": "No"
+      },
+      {
+        "paragraph": "All notices, demands, and other communications required or permitted hereunder shall be in writing and shall be served by personal delivery, by registered or certified mail, return receipt requested, or by overnight courier service. Notices to the Purchaser shall be sent to:\n  GMXR Acquisition LLC\n  100 West Fifth Street, Suite 1100\n  Tulsa, Oklahoma 74103\n  Attention: General Counsel\n  with a copy (which shall not constitute notice) to:\n  Faegre Baker Daniels LLP\n  90 South Seventh Street, Suite 2200\n  Minneapolis, Minnesota 55402\n  Attention: Michael B. Fisco\n  Notices to the Sellers shall be sent to:\n  GMX Resources Inc.\n  200 West Fifth Street, Suite 1200\n  Tulsa, Oklahoma 74103\n  Attention: Legal Department\n  with a copy (which shall not constitute notice) to:\n  Faegre Baker Daniels LLP\n  90 South Seventh Street, Suite 2200\n  Minneapolis, Minnesota 55402\n  Attention: Corporate Counsel",
+        "target_company": "The target company is Sullivan & Cromwell LLP.",
+        "buyer": "GMXR Acquisition LLC",
+        "buyer_representative": "Faegre Baker Daniels LLP",
+        "seller": "GMX Resources Inc.",
+        "seller_representative": "Faegre Baker Daniels LLP",
+        "third_party_representation": "Not stated",
+        "target_company_mentioned": "No"
+      }
+    ],
+    "signature": {
+      "instructions": "Please analyze the provided paragraph from a legal document to identify key entities in relation to the specified target company. Extract the names of the buyer, buyer representative, seller, seller representative, and any third-party representation. Indicate if the target company is mentioned. If a specific name for any entity is not available or not mentioned, return 'Not stated'. Avoid generic labels for entities such as 'the Company' or 'the Purchaser'. Use a systematic and step-by-step reasoning approach to ensure accurate extraction of details.",
+      "fields": [
+        {
+          "prefix": "Paragraph:",
+          "description": "One paragraph from the contract"
+        },
+        {
+          "prefix": "Target Company:",
+          "description": "The identified target company from Step 1"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Buyer:",
+          "description": "Name of the Buyer company"
+        },
+        {
+          "prefix": "Buyer Representative:",
+          "description": "Law firm or representative for the Buyer"
+        },
+        {
+          "prefix": "Seller:",
+          "description": "Name of the Seller company"
+        },
+        {
+          "prefix": "Seller Representative:",
+          "description": "Law firm or representative for the Seller"
+        },
+        {
+          "prefix": "Third Party Representation:",
+          "description": "Any third-party law firms or advisory roles mentioned"
+        },
+        {
+          "prefix": "Target Company Mentioned:",
+          "description": "Boolean: 'Yes' or 'No' indicating if target is explicitly mentioned"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.1.0",
+      "cloudpickle": "3.1"
+    }
+  }
+}

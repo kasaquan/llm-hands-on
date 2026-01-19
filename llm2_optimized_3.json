@@ -1,0 +1,101 @@
+{
+  "analyzer.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "paragraph": "No dividend, distribution, redemption, recapitalization or other transaction involving the equity securities of China Risk Finance LLC, or distribution or payment to any of the Members or any of their relatives or Affiliates has occurred. No capital expenditures by the Company or any of the CRF Entities in excess of $500,000 have been made. No tax liability has been incurred except in the ordinary course of business.",
+        "target_company": "The target company is China Risk Finance LLC.",
+        "reasoning": "The paragraph explicitly mentions \"China Risk Finance LLC\" as well as \"the Company\" and \"CRF Entities,\" indicating that the target company is involved in the context of the transactions and financial activities described.",
+        "buyer": "Not stated",
+        "buyer_representative": "Not stated",
+        "seller": "Not stated",
+        "seller_representative": "Not stated",
+        "third_party_representation": "Not stated",
+        "target_company_mentioned": "Yes"
+      },
+      {
+        "augmented": true,
+        "paragraph": "After the Initial Closing, the Company may, in its sole discretion, sell, on the same terms and conditions as those contained in this Agreement, up to 3,566,066 additional Series C Preferred Shares (the \"Additional Shares\"), to one or more purchasers (the \"Additional Purchasers\"), provided that (i) such subsequent sale is consummated prior to 90 days after the Initial Closing and (ii) each Additional Purchaser shall become a party to the Transaction Agreements by executing and delivering a counterpart signature page thereto.",
+        "target_company": "The target company is Apple Inc.",
+        "reasoning": "The paragraph discusses the Company's ability to sell additional shares but does not explicitly mention the name of the Company or any specific buyer or seller. The target company, Apple Inc., is not mentioned in the context of this paragraph.",
+        "buyer": "Not stated",
+        "buyer_representative": "Not stated",
+        "seller": "Not stated",
+        "seller_representative": "Not stated",
+        "third_party_representation": "Not stated",
+        "target_company_mentioned": "No"
+      },
+      {
+        "paragraph": "At the Closing, the Company shall sell, transfer, assign and deliver to Buyer, and Buyer shall purchase, accept, assume and receive, all right, title and interest in and to the Purchased Assets as of the Closing whether tangible or intangible, personal and located in the United States and possessed by the Company, free and clear of any lien, mortgage, security interest or other encumbrance. The Purchased Assets include all customer deposits for weddings, albums, and associated products and services received by the Company prior to the Closing that relate to the Transferred Contracts, all accounts receivable relating to Transferred Contracts, and all rights in, to and under the Contracts set forth on the schedules, including all open customer orders set forth thereon and all receivables due after the Closing Date pursuant to such Contracts.",
+        "target_company": "The target company is Google.",
+        "buyer": "Not stated",
+        "buyer_representative": "Not stated",
+        "seller": "Not stated",
+        "seller_representative": "Not stated",
+        "third_party_representation": "Not stated",
+        "target_company_mentioned": "No"
+      },
+      {
+        "paragraph": "WHEREAS, Seller's wholly owned Subsidiary, Tucows (Delaware) Inc., a Delaware corporation, is the sole shareholder of Ting, Inc., a Delaware corporation (\"Ting\"); WHEREAS, Seller desires to sell (or cause to be sold), and Buyer desires to purchase, certain assets and Buyer is willing to assume certain liabilities, in each case in connection with the Business upon the terms and subject to the conditions set forth herein; and WHEREAS, concurrently with the entry into this Agreement, the Parties or their respective Affiliates have entered into the Ancillary Agreements, Seller and each of the Seller Entities have entered into and delivered the Seller Release and Seller has delivered a duly executed IRS Form W-9 with respect to Seller and each Seller Entity.",
+        "target_company": "The target company is Davis Polk & Wardwell LLP.",
+        "buyer": "Not stated",
+        "buyer_representative": "Not stated",
+        "seller": "TUCOWS INC.",
+        "seller_representative": "Not stated",
+        "third_party_representation": "Not stated",
+        "target_company_mentioned": "No"
+      }
+    ],
+    "signature": {
+      "instructions": "You are tasked with analyzing high-stakes transactional legal documents to ensure precise extraction of specific entities related to a designated target company. Using robust reasoning skills, process the given paragraph from a legal agreement to accurately identify involved parties such as buyers, sellers, their representatives, and any third-party entities. Apply a structured approach to handle cases where entities are not explicitly named, replacing them with 'Not stated'. Additionally, verify if the specified target company is mentioned within the paragraph. This task is crucial for maintaining the accuracy and integrity of high-value mergers and acquisitions. Be meticulous in your entity recognition, as your output data will directly support legal compliance, due diligence processes, and the automation of contract analysis. Make sure to adhere closely to these instructions and utilize a step-by-step reasoning method to provide clear and detailed outputs, including reasoning, buyer, buyer representative, seller, seller representative, third-party representation, and whether the target company is mentioned, each explicitly defined.",
+      "fields": [
+        {
+          "prefix": "Paragraph:",
+          "description": "One paragraph from the contract"
+        },
+        {
+          "prefix": "Target Company:",
+          "description": "The identified target company from Step 1"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Buyer:",
+          "description": "Name of the Buyer company"
+        },
+        {
+          "prefix": "Buyer Representative:",
+          "description": "Law firm or representative for the Buyer"
+        },
+        {
+          "prefix": "Seller:",
+          "description": "Name of the Seller company"
+        },
+        {
+          "prefix": "Seller Representative:",
+          "description": "Law firm or representative for the Seller"
+        },
+        {
+          "prefix": "Third Party Representation:",
+          "description": "Any third-party law firms or advisory roles mentioned"
+        },
+        {
+          "prefix": "Target Company Mentioned:",
+          "description": "Boolean: 'Yes' or 'No' indicating if target is explicitly mentioned"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.1.0",
+      "cloudpickle": "3.1"
+    }
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "analyzer.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "paragraph": "This Agreement shall be governed by and construed in accordance with the internal laws of the State of Delaware, without giving effect to any choice or conflict of law provision or rule. Each clause within this Agreement shall be interpreted independently, and the invalidity of one clause shall not affect the enforceability of the remaining provisions. Headings are for convenience only and shall not affect the interpretation of this Agreement. Nothing herein shall be construed as limiting or waiving any rights or obligations under applicable law unless expressly stated.",
+        "target_company": "The target company is Sullivan & Cromwell LLP.",
+        "reasoning": "The paragraph discusses the governing law and interpretation of the Agreement but does not mention any specific buyer or seller entities. It also does not reference the target company, Sullivan & Cromwell LLP, indicating that it is not explicitly mentioned in this context.",
+        "buyer": "Not stated",
+        "buyer_representative": "Not stated",
+        "seller": "Not stated",
+        "seller_representative": "Not stated",
+        "third_party_representation": "Not stated",
+        "target_company_mentioned": "No"
+      },
+      {
+        "augmented": true,
+        "paragraph": "The issuance and sale of the Purchased Shares hereunder will not obligate Athenex, Inc. to issue shares of Common Stock or other securities to any other Person and will not result in the adjustment of the exercise, conversion, exchange or reset price of any outstanding security. The Purchased Shares to be issued and sold by Athenex, Inc. hereunder have been duly authorized and, when issued and delivered and paid for as provided herein, will be duly and validly issued, will be fully paid and non-assessable, and shall be free and clear of Encumbrances other than restrictions on transfer under applicable securities laws.",
+        "target_company": "The target company is Athenex, Inc.",
+        "reasoning": "The paragraph explicitly mentions Athenex, Inc. as the entity involved in the issuance and sale of the Purchased Shares. Since the target company is also Athenex, Inc., it confirms that the target company is explicitly mentioned in the paragraph.",
+        "buyer": "Not stated",
+        "buyer_representative": "Not stated",
+        "seller": "Athenex, Inc.",
+        "seller_representative": "Not stated",
+        "third_party_representation": "Not stated",
+        "target_company_mentioned": "Yes"
+      },
+      {
+        "paragraph": "This ASSET PURCHASE AGREEMENT, dated as of December 17, 2012, is by and between Bella Pictures Holdings, LLC, a Delaware limited liability company (the \"Company\" or \"Seller\"), and The Pros Entertainment Services, Inc., a Pennsylvania corporation (the \"Buyer\"). Pursuant to this Agreement, the Company desires to sell to Buyer, and Buyer desires to purchase from the Company, the Purchased Assets, on and subject to the terms and conditions set forth herein.",
+        "target_company": "The target company is Google.",
+        "buyer": "The Pros Entertainment Services, Inc.",
+        "buyer_representative": "Not stated",
+        "seller": "Bella Pictures Holdings, LLC",
+        "seller_representative": "Not stated",
+        "third_party_representation": "Not stated",
+        "target_company_mentioned": "No"
+      },
+      {
+        "paragraph": "China Capital Financial LLC (\"CCF\") is a wholly owned subsidiary of the Company and is a limited liability company duly formed, validly existing and in good standing under the laws of the State of Delaware. China Capital Financial LLC has all requisite power and authority (limited liability company and otherwise) to own, lease and operate its properties and to carry on its Business. CCF is duly qualified to transact business and is in good standing in each jurisdiction in which the failure to so qualify would have a material adverse effect on the business, assets, condition or results of operations of China Capital Financial LLC.",
+        "target_company": "The target company is China Capital Financial LLC.",
+        "buyer": "Not stated",
+        "buyer_representative": "Not stated",
+        "seller": "Not stated",
+        "seller_representative": "Not stated",
+        "third_party_representation": "Not stated",
+        "target_company_mentioned": "Yes"
+      }
+    ],
+    "signature": {
+      "instructions": "Please review the provided legal document paragraph in context with the specified target company, and extract essential entities and relationships such as the buyer, seller, their representatives, and any third-party involvements. Also, identify whether the target company is explicitly mentioned in the text. Use \"Not stated\" for any field where the information is not present. Provide a brief reasoning for the extractions based on the paragraph content.",
+      "fields": [
+        {
+          "prefix": "Paragraph:",
+          "description": "One paragraph from the contract"
+        },
+        {
+          "prefix": "Target Company:",
+          "description": "The identified target company from Step 1"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Buyer:",
+          "description": "Name of the Buyer company"
+        },
+        {
+          "prefix": "Buyer Representative:",
+          "description": "Law firm or representative for the Buyer"
+        },
+        {
+          "prefix": "Seller:",
+          "description": "Name of the Seller company"
+        },
+        {
+          "prefix": "Seller Representative:",
+          "description": "Law firm or representative for the Seller"
+        },
+        {
+          "prefix": "Third Party Representation:",
+          "description": "Any third-party law firms or advisory roles mentioned"
+        },
+        {
+          "prefix": "Target Company Mentioned:",
+          "description": "Boolean: 'Yes' or 'No' indicating if target is explicitly mentioned"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.1.0",
+      "cloudpickle": "3.1"
+    }
+  }
+}
