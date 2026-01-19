@@ -1,0 +1,698 @@
+[
+  {
+    "target_company": "DeepMind",
+    "paragraph": "This Stock Purchase Agreement is entered into as of March 15, 2024, by and among Alphabet Inc., a Delaware corporation (Buyer), DeepMind Technologies Limited, a United Kingdom private limited company (the Company), and the shareholders of the Company listed on Schedule A (the Sellers). Buyer has been represented by Sullivan & Cromwell LLP in connection with the negotiation and execution of this Agreement. The Company and Sellers have been represented by Freshfields Bruckhaus Deringer LLP in connection with this Agreement.",
+    "expected_output": {
+      "buyer": "Alphabet Inc.",
+      "buyer_representative": "Sullivan & Cromwell LLP",
+      "seller": "DeepMind Technologies Limited",
+      "seller_representative": "Freshfields Bruckhaus Deringer LLP",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Xiaomi",
+    "paragraph": "This Asset Purchase Agreement is made and entered into as of January 10, 2023, by and among Xiaomi Corporation, a Cayman Islands exempted company (Seller), and Smart Device Holdings LLC, a Delaware limited liability company (Buyer). The Seller has engaged Skadden, Arps, Slate, Meagher & Flom LLP as its legal counsel for this transaction. Buyer is represented by Davis Polk & Wardwell LLP.",
+    "expected_output": {
+      "buyer": "Smart Device Holdings LLC",
+      "buyer_representative": "Davis Polk & Wardwell LLP",
+      "seller": "Xiaomi Corporation",
+      "seller_representative": "Skadden, Arps, Slate, Meagher & Flom LLP",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Apple",
+    "paragraph": "This Agreement shall be governed by and construed in accordance with the internal laws of the State of Delaware without giving effect to any choice or conflict of law provision or rule. All notices required or permitted hereunder shall be in writing and shall be deemed given when delivered personally or by overnight courier service.",
+    "expected_output": {
+      "buyer": "Not stated",
+      "buyer_representative": "Not stated",
+      "seller": "Not stated",
+      "seller_representative": "Not stated",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "No"
+    }
+  },
+  {
+    "target_company": "Microsoft",
+    "paragraph": "This Merger Agreement is entered into as of June 4, 2018, by and among Microsoft Corporation, a Washington corporation (Parent), Merger Sub, Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and GitHub, Inc., a Delaware corporation (the Company). The Company has been represented by Fenwick & West LLP as counsel in connection with this Agreement. Parent and Merger Sub have been represented by Simpson Thacher & Bartlett LLP as counsel.",
+    "expected_output": {
+      "buyer": "Microsoft Corporation",
+      "buyer_representative": "Simpson Thacher & Bartlett LLP",
+      "seller": "GitHub, Inc.",
+      "seller_representative": "Fenwick & West LLP",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Tesla",
+    "paragraph": "This Stock Purchase Agreement is entered into as of September 1, 2022, by and among Tesla, Inc., a Delaware corporation (Buyer), and SolarCity Corporation, a Delaware corporation (the Company). Buyer has retained Wachtell, Lipton, Rosen & Katz as its legal advisor. The Company is represented by Latham & Watkins LLP. Additionally, Morgan Stanley & Co. LLC has been engaged as financial advisor to the Company.",
+    "expected_output": {
+      "buyer": "Tesla, Inc.",
+      "buyer_representative": "Wachtell, Lipton, Rosen & Katz",
+      "seller": "SolarCity Corporation",
+      "seller_representative": "Latham & Watkins LLP",
+      "third_party_representation": "Morgan Stanley & Co. LLC",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Amazon Web Services",
+    "paragraph": "This Asset Purchase Agreement is made and entered into as of November 5, 2021, by and among Amazon.com, Inc., a Delaware corporation (Buyer), and Twilio Inc., a Delaware corporation (Seller). Buyer is represented by Covington & Burling LLP. Seller has engaged Cravath, Swaine & Moore LLP as its legal counsel.",
+    "expected_output": {
+      "buyer": "Amazon.com, Inc.",
+      "buyer_representative": "Covington & Burling LLP",
+      "seller": "Twilio Inc.",
+      "seller_representative": "Cravath, Swaine & Moore LLP",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "No"
+    }
+  },
+  {
+    "target_company": "Meta Platforms",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of October 28, 2021, by and among Meta Platforms, Inc., a Delaware corporation (Parent), Merger Sub Corp., a Delaware corporation and wholly-owned subsidiary of Parent (Merger Sub), and WhatsApp Inc., a Delaware corporation (the Company). The Company has been represented by Cooley LLP. Parent and Merger Sub have been represented by Wilson Sonsini Goodrich & Rosati, P.C.",
+    "expected_output": {
+      "buyer": "Meta Platforms, Inc.",
+      "buyer_representative": "Wilson Sonsini Goodrich & Rosati, P.C.",
+      "seller": "WhatsApp Inc.",
+      "seller_representative": "Cooley LLP",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Google",
+    "paragraph": "This Stock Purchase Agreement is entered into as of May 13, 2011, by and among VF Corporation, a Pennsylvania corporation (Parent), TBL Acquisition LLC, a Delaware limited liability company and a wholly-owned subsidiary of Parent (Purchaser), and The Timberland Company, a Delaware corporation (the Company). The Purchaser shall cause Shearman & Sterling LLP, counsel to Parent and Purchaser, to be made available to the Representative following the Closing. The Company has been represented by Cleary Gottlieb Steen & Hamilton LLP.",
+    "expected_output": {
+      "buyer": "VF Corporation",
+      "buyer_representative": "Shearman & Sterling LLP",
+      "seller": "The Timberland Company",
+      "seller_representative": "Cleary Gottlieb Steen & Hamilton LLP",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "No"
+    }
+  },
+  {
+    "target_company": "Netflix",
+    "paragraph": "This Asset Purchase Agreement is entered into as of July 15, 2020, by and among Netflix, Inc., a Delaware corporation (Buyer), and Millarworld Limited, a United Kingdom private limited company (Seller). Buyer has retained O'Melveny & Myers LLP as its legal counsel. Seller is represented by Slaughter and May.",
+    "expected_output": {
+      "buyer": "Netflix, Inc.",
+      "buyer_representative": "O'Melveny & Myers LLP",
+      "seller": "Millarworld Limited",
+      "seller_representative": "Slaughter and May",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "NVIDIA Corporation",
+    "paragraph": "This Merger Agreement is entered into as of March 12, 2019, by and among NVIDIA Corporation, a Delaware corporation (Parent), ARM Holdings plc, a public limited company incorporated in England and Wales (the Company), and the shareholders of the Company. Parent has been represented by Skadden, Arps, Slate, Meagher & Flom LLP. The Company has been represented by Freshfields Bruckhaus Deringer LLP. Goldman Sachs & Co. LLC has been engaged as financial advisor to the Company.",
+    "expected_output": {
+      "buyer": "NVIDIA Corporation",
+      "buyer_representative": "Skadden, Arps, Slate, Meagher & Flom LLP",
+      "seller": "ARM Holdings plc",
+      "seller_representative": "Freshfields Bruckhaus Deringer LLP",
+      "third_party_representation": "Goldman Sachs & Co. LLC",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "OpenAI",
+    "paragraph": "This Stock Purchase Agreement is entered into as of January 1, 2023, by and among Microsoft Corporation, a Washington corporation (Buyer), and OpenAI, Inc., a Delaware corporation (the Company). Buyer has been represented by Simpson Thacher & Bartlett LLP. The Company has been represented by Orrick, Herrington & Sutcliffe LLP.",
+    "expected_output": {
+      "buyer": "Microsoft Corporation",
+      "buyer_representative": "Simpson Thacher & Bartlett LLP",
+      "seller": "OpenAI, Inc.",
+      "seller_representative": "Orrick, Herrington & Sutcliffe LLP",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "IBM",
+    "paragraph": "This Asset Purchase Agreement is made and entered into as of October 6, 2018, by and among International Business Machines Corporation, a New York corporation (Buyer), and Red Hat, Inc., a Delaware corporation (Seller). Buyer has engaged Cravath, Swaine & Moore LLP as its legal counsel. Seller has been represented by Cleary Gottlieb Steen & Hamilton LLP.",
+    "expected_output": {
+      "buyer": "International Business Machines Corporation",
+      "buyer_representative": "Cravath, Swaine & Moore LLP",
+      "seller": "Red Hat, Inc.",
+      "seller_representative": "Cleary Gottlieb Steen & Hamilton LLP",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Salesforce.com",
+    "paragraph": "This Agreement shall be governed by and construed in accordance with the internal laws of the State of California. All disputes arising out of or relating to this Agreement shall be resolved through binding arbitration in San Francisco, California.",
+    "expected_output": {
+      "buyer": "Not stated",
+      "buyer_representative": "Not stated",
+      "seller": "Not stated",
+      "seller_representative": "Not stated",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "No"
+    }
+  },
+  {
+    "target_company": "Google",
+    "paragraph": "This Stock Purchase Agreement is entered into as of December 3, 2018, by and among Adobe Inc., a Delaware corporation (Buyer), and Marketo, Inc., a Delaware corporation (the Company). Buyer has been represented by Wilson Sonsini Goodrich & Rosati, P.C. The Company has been represented by Fenwick & West LLP.",
+    "expected_output": {
+      "buyer": "Adobe Inc.",
+      "buyer_representative": "Wilson Sonsini Goodrich & Rosati, P.C.",
+      "seller": "Marketo, Inc.",
+      "seller_representative": "Fenwick & West LLP",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "No"
+    }
+  },
+  {
+    "target_company": "Palantir Technologies",
+    "paragraph": "This Merger Agreement is entered into as of September 30, 2020, by and among Palantir Technologies Inc., a Delaware corporation (Parent), and a special purpose acquisition company (the Company). Parent has been represented by Kirkland & Ellis LLP. The Company has been represented by Latham & Watkins LLP. J.P. Morgan Securities LLC has been engaged as financial advisor.",
+    "expected_output": {
+      "buyer": "Palantir Technologies Inc.",
+      "buyer_representative": "Kirkland & Ellis LLP",
+      "seller": "Not stated",
+      "seller_representative": "Latham & Watkins LLP",
+      "third_party_representation": "J.P. Morgan Securities LLC",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Oracle Corp",
+    "paragraph": "This Asset Purchase Agreement is entered into as of June 28, 2022, by and among Oracle Corporation, a Delaware corporation (Buyer), and Cerner Corporation, a Delaware corporation (Seller). Buyer has retained Gibson, Dunn & Crutcher LLP as its legal counsel. Seller has been represented by Skadden, Arps, Slate, Meagher & Flom LLP.",
+    "expected_output": {
+      "buyer": "Oracle Corporation",
+      "buyer_representative": "Gibson, Dunn & Crutcher LLP",
+      "seller": "Cerner Corporation",
+      "seller_representative": "Skadden, Arps, Slate, Meagher & Flom LLP",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Intel",
+    "paragraph": "This Stock Purchase Agreement is entered into as of January 16, 2022, by and among Intel Corporation, a Delaware corporation (Buyer), and Tower Semiconductor Ltd., an Israeli company (the Company). Buyer has been represented by Weil, Gotshal & Manges LLP. The Company has been represented by Meitar Law Offices.",
+    "expected_output": {
+      "buyer": "Intel Corporation",
+      "buyer_representative": "Weil, Gotshal & Manges LLP",
+      "seller": "Tower Semiconductor Ltd.",
+      "seller_representative": "Meitar Law Offices",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Zoom Video Communications",
+    "paragraph": "This Merger Agreement is entered into as of July 18, 2021, by and among Zoom Video Communications, Inc., a Delaware corporation (Parent), and Five9, Inc., a Delaware corporation (the Company). Parent has been represented by Cooley LLP. The Company has been represented by Latham & Watkins LLP.",
+    "expected_output": {
+      "buyer": "Zoom Video Communications, Inc.",
+      "buyer_representative": "Cooley LLP",
+      "seller": "Five9, Inc.",
+      "seller_representative": "Latham & Watkins LLP",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Shopify",
+    "paragraph": "This Stock Purchase Agreement is entered into as of May 1, 2019, by and among Shopify Inc., a Canadian corporation (Buyer), and 6 River Systems, Inc., a Delaware corporation (the Company). Buyer has been represented by Stikeman Elliott LLP. The Company has been represented by Goodwin Procter LLP.",
+    "expected_output": {
+      "buyer": "Shopify Inc.",
+      "buyer_representative": "Stikeman Elliott LLP",
+      "seller": "6 River Systems, Inc.",
+      "seller_representative": "Goodwin Procter LLP",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "DeepMind",
+    "paragraph": "On October 28, 2021, Ecolab Inc. (Ecolab) entered into a Stock and Asset Purchase Agreement by and among Ecolab, Purolite Corporation, a Delaware corporation (Purolite), Stefan E. Brodie and Don B. Brodie (the Founder Sellers and together with Purolite, the Sellers). If to the Sellers or the Seller Representative, to: Purolite Corporation, 2201 Renaissance Boulevard, King of Prussia, Pennsylvania 19406, with a copy to: Skadden, Arps, Slate, Meagher & Flom LLP, One Manhattan West, New York, New York 10001. If to the Buyer, to: Ecolab Inc., 1 Ecolab Place, St. Paul, Minnesota 55102, with a copy to: Cravath, Swaine & Moore LLP, Worldwide Plaza, 825 Eighth Avenue, New York, New York 10019.",
+    "expected_output": {
+      "buyer": "Ecolab Inc.",
+      "buyer_representative": "Cravath, Swaine & Moore LLP",
+      "seller": "Purolite Corporation",
+      "seller_representative": "Skadden, Arps, Slate, Meagher & Flom LLP",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "No"
+    }
+  },
+  {
+    "target_company": "Google",
+    "paragraph": "This Agreement shall be governed by and construed in accordance with the internal laws of the State of Delaware, without giving effect to any choice or conflict of law provision. Each clause within this Agreement shall be interpreted independently, and the invalidity of one clause shall not affect the enforceability of the remaining provisions.",
+    "expected_output": {
+      "buyer": "Not stated",
+      "buyer_representative": "Not stated",
+      "seller": "Not stated",
+      "seller_representative": "Not stated",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "No"
+    }
+  },
+  {
+    "target_company": "Apple",
+    "paragraph": "This Stock Purchase Agreement is entered into as of August 1, 2014, by and among Apple Inc., a California corporation (Buyer), and Beats Electronics, LLC, a Delaware limited liability company (the Company). Buyer has been represented by O'Melveny & Myers LLP. The Company has been represented by Irell & Manella LLP.",
+    "expected_output": {
+      "buyer": "Apple Inc.",
+      "buyer_representative": "O'Melveny & Myers LLP",
+      "seller": "Beats Electronics, LLC",
+      "seller_representative": "Irell & Manella LLP",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Microsoft",
+    "paragraph": "This Agreement may be terminated at any time prior to the Closing under the following conditions: (a) by mutual written consent of the parties; (b) by Purchaser, if there has been a material breach by Seller which has not been cured within ten (10) business days after written notice; or (c) by Seller, if there has been a material breach by Purchaser which has not been cured within ten (10) business days after written notice.",
+    "expected_output": {
+      "buyer": "Not stated",
+      "buyer_representative": "Not stated",
+      "seller": "Not stated",
+      "seller_representative": "Not stated",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "No"
+    }
+  },
+  {
+    "target_company": "Tesla",
+    "paragraph": "This Asset Purchase Agreement is entered into as of November 21, 2016, by and among Tesla, Inc., a Delaware corporation (Buyer), and SolarCity Corporation, a Delaware corporation (Seller). Buyer has retained Wachtell, Lipton, Rosen & Katz as its legal advisor. The Company is represented by Latham & Watkins LLP. Additionally, Evercore Partners Inc. has been engaged as financial advisor to the transaction.",
+    "expected_output": {
+      "buyer": "Tesla, Inc.",
+      "buyer_representative": "Wachtell, Lipton, Rosen & Katz",
+      "seller": "SolarCity Corporation",
+      "seller_representative": "Latham & Watkins LLP",
+      "third_party_representation": "Evercore Partners Inc.",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Google",
+    "paragraph": "This Stock Purchase Agreement is entered into as of March 15, 2017, by and among Amazon.com, Inc., a Delaware corporation (Buyer), and Whole Foods Market, Inc., a Texas corporation (the Company). Buyer has been represented by Covington & Burling LLP. The Company has been represented by Vinson & Elkins LLP.",
+    "expected_output": {
+      "buyer": "Amazon.com, Inc.",
+      "buyer_representative": "Covington & Burling LLP",
+      "seller": "Whole Foods Market, Inc.",
+      "seller_representative": "Vinson & Elkins LLP",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "No"
+    }
+  },
+  {
+    "target_company": "Activision Blizzard",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of January 18, 2022, by and among Microsoft Corporation, a Washington corporation (Parent), Microsoft Merger Sub Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and Activision Blizzard, Inc., a Delaware corporation (the Company). The Company has been represented by Skadden, Arps, Slate, Meagher & Flom LLP as its legal counsel in connection with this Agreement. Parent and Merger Sub have been represented by Simpson Thacher & Bartlett LLP as their legal counsel. Lazard Frères & Co. LLC has been engaged as financial advisor to the Company.",
+    "expected_output": {
+      "buyer": "Microsoft Corporation",
+      "buyer_representative": "Simpson Thacher & Bartlett LLP",
+      "seller": "Activision Blizzard, Inc.",
+      "seller_representative": "Skadden, Arps, Slate, Meagher & Flom LLP",
+      "third_party_representation": "Lazard Frères & Co. LLC",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Twitter",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of April 25, 2022, by and among X Holdings I, Inc., a Delaware corporation (Parent), X Holdings II, Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and Twitter, Inc., a Delaware corporation (the Company). The Company has been represented by Wachtell, Lipton, Rosen & Katz as its legal counsel. Parent and Merger Sub have been represented by Skadden, Arps, Slate, Meagher & Flom LLP as their legal counsel.",
+    "expected_output": {
+      "buyer": "X Holdings I, Inc.",
+      "buyer_representative": "Skadden, Arps, Slate, Meagher & Flom LLP",
+      "seller": "Twitter, Inc.",
+      "seller_representative": "Wachtell, Lipton, Rosen & Katz",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "LinkedIn",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of June 13, 2016, by and among Microsoft Corporation, a Washington corporation (Parent), Microsoft Merger Sub Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and LinkedIn Corporation, a Delaware corporation (the Company). The Company has been represented by Wilson Sonsini Goodrich & Rosati, P.C. as its legal counsel. Parent and Merger Sub have been represented by Simpson Thacher & Bartlett LLP as their legal counsel. Qatalyst Partners LP has been engaged as financial advisor to the Company.",
+    "expected_output": {
+      "buyer": "Microsoft Corporation",
+      "buyer_representative": "Simpson Thacher & Bartlett LLP",
+      "seller": "LinkedIn Corporation",
+      "seller_representative": "Wilson Sonsini Goodrich & Rosati, P.C.",
+      "third_party_representation": "Qatalyst Partners LP",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Tableau Software",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of June 10, 2019, by and among Salesforce.com, Inc., a Delaware corporation (Parent), Tableau Merger Sub Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and Tableau Software, Inc., a Delaware corporation (the Company). The Company has been represented by Cooley LLP as its legal counsel. Parent and Merger Sub have been represented by Skadden, Arps, Slate, Meagher & Flom LLP as their legal counsel.",
+    "expected_output": {
+      "buyer": "Salesforce.com, Inc.",
+      "buyer_representative": "Skadden, Arps, Slate, Meagher & Flom LLP",
+      "seller": "Tableau Software, Inc.",
+      "seller_representative": "Cooley LLP",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "MuleSoft",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of March 20, 2018, by and among Salesforce.com, Inc., a Delaware corporation (Parent), Salesforce Merger Sub Corp., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and MuleSoft, Inc., a Delaware corporation (the Company). The Company has been represented by Wilson Sonsini Goodrich & Rosati, P.C. as its legal counsel. Parent and Merger Sub have been represented by Skadden, Arps, Slate, Meagher & Flom LLP as their legal counsel. Qatalyst Partners LP has been engaged as financial advisor to the Company.",
+    "expected_output": {
+      "buyer": "Salesforce.com, Inc.",
+      "buyer_representative": "Skadden, Arps, Slate, Meagher & Flom LLP",
+      "seller": "MuleSoft, Inc.",
+      "seller_representative": "Wilson Sonsini Goodrich & Rosati, P.C.",
+      "third_party_representation": "Qatalyst Partners LP",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Slack Technologies",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of December 1, 2020, by and among Salesforce.com, Inc., a Delaware corporation (Parent), Salesforce Merger Sub LLC, a Delaware limited liability company and a wholly-owned subsidiary of Parent (Merger Sub), and Slack Technologies, Inc., a Delaware corporation (the Company). The Company has been represented by Cooley LLP as its legal counsel. Parent and Merger Sub have been represented by Skadden, Arps, Slate, Meagher & Flom LLP as their legal counsel. Qatalyst Partners LP has been engaged as financial advisor to the Company.",
+    "expected_output": {
+      "buyer": "Salesforce.com, Inc.",
+      "buyer_representative": "Skadden, Arps, Slate, Meagher & Flom LLP",
+      "seller": "Slack Technologies, Inc.",
+      "seller_representative": "Cooley LLP",
+      "third_party_representation": "Qatalyst Partners LP",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Google",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of December 1, 2020, by and among Salesforce.com, Inc., a Delaware corporation (Parent), Salesforce Merger Sub LLC, a Delaware limited liability company and a wholly-owned subsidiary of Parent (Merger Sub), and Slack Technologies, Inc., a Delaware corporation (the Company). The Company has been represented by Cooley LLP as its legal counsel. Parent and Merger Sub have been represented by Skadden, Arps, Slate, Meagher & Flom LLP as their legal counsel.",
+    "expected_output": {
+      "buyer": "Salesforce.com, Inc.",
+      "buyer_representative": "Skadden, Arps, Slate, Meagher & Flom LLP",
+      "seller": "Slack Technologies, Inc.",
+      "seller_representative": "Cooley LLP",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "No"
+    }
+  },
+  {
+    "target_company": "Broadcom",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of May 26, 2022, by and among Broadcom Inc., a Delaware corporation (Parent), Broadcom Merger Sub Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and VMware, Inc., a Delaware corporation (the Company). The Company has been represented by Wachtell, Lipton, Rosen & Katz as its legal counsel. Parent and Merger Sub have been represented by Sullivan & Cromwell LLP as their legal counsel. Goldman Sachs & Co. LLC has been engaged as financial advisor to the Company.",
+    "expected_output": {
+      "buyer": "Broadcom Inc.",
+      "buyer_representative": "Sullivan & Cromwell LLP",
+      "seller": "VMware, Inc.",
+      "seller_representative": "Wachtell, Lipton, Rosen & Katz",
+      "third_party_representation": "Goldman Sachs & Co. LLC",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "VMware",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of May 26, 2022, by and among Broadcom Inc., a Delaware corporation (Parent), Broadcom Merger Sub Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and VMware, Inc., a Delaware corporation (the Company). The Company has been represented by Wachtell, Lipton, Rosen & Katz as its legal counsel. Parent and Merger Sub have been represented by Sullivan & Cromwell LLP as their legal counsel.",
+    "expected_output": {
+      "buyer": "Broadcom Inc.",
+      "buyer_representative": "Sullivan & Cromwell LLP",
+      "seller": "VMware, Inc.",
+      "seller_representative": "Wachtell, Lipton, Rosen & Katz",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Apple",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of May 26, 2022, by and among Broadcom Inc., a Delaware corporation (Parent), Broadcom Merger Sub Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and VMware, Inc., a Delaware corporation (the Company). The Company has been represented by Wachtell, Lipton, Rosen & Katz as its legal counsel. Parent and Merger Sub have been represented by Sullivan & Cromwell LLP as their legal counsel.",
+    "expected_output": {
+      "buyer": "Broadcom Inc.",
+      "buyer_representative": "Sullivan & Cromwell LLP",
+      "seller": "VMware, Inc.",
+      "seller_representative": "Wachtell, Lipton, Rosen & Katz",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "No"
+    }
+  },
+  {
+    "target_company": "Adobe",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of September 15, 2018, by and among Adobe Inc., a Delaware corporation (Parent), Adobe Merger Sub Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and Marketo, Inc., a Delaware corporation (the Company). The Company has been represented by Fenwick & West LLP as its legal counsel. Parent and Merger Sub have been represented by Wilson Sonsini Goodrich & Rosati, P.C. as their legal counsel.",
+    "expected_output": {
+      "buyer": "Adobe Inc.",
+      "buyer_representative": "Wilson Sonsini Goodrich & Rosati, P.C.",
+      "seller": "Marketo, Inc.",
+      "seller_representative": "Fenwick & West LLP",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Marketo",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of September 15, 2018, by and among Adobe Inc., a Delaware corporation (Parent), Adobe Merger Sub Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and Marketo, Inc., a Delaware corporation (the Company). The Company has been represented by Fenwick & West LLP as its legal counsel. Parent and Merger Sub have been represented by Wilson Sonsini Goodrich & Rosati, P.C. as their legal counsel. Qatalyst Partners LP has been engaged as financial advisor to the Company.",
+    "expected_output": {
+      "buyer": "Adobe Inc.",
+      "buyer_representative": "Wilson Sonsini Goodrich & Rosati, P.C.",
+      "seller": "Marketo, Inc.",
+      "seller_representative": "Fenwick & West LLP",
+      "third_party_representation": "Qatalyst Partners LP",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Splunk",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of September 21, 2023, by and among Cisco Systems, Inc., a California corporation (Parent), Cisco Merger Sub Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and Splunk Inc., a Delaware corporation (the Company). The Company has been represented by Cleary Gottlieb Steen & Hamilton LLP as its legal counsel. Parent and Merger Sub have been represented by Wachtell, Lipton, Rosen & Katz as their legal counsel. Morgan Stanley & Co. LLC has been engaged as financial advisor to the Company.",
+    "expected_output": {
+      "buyer": "Cisco Systems, Inc.",
+      "buyer_representative": "Wachtell, Lipton, Rosen & Katz",
+      "seller": "Splunk Inc.",
+      "seller_representative": "Cleary Gottlieb Steen & Hamilton LLP",
+      "third_party_representation": "Morgan Stanley & Co. LLC",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Cisco",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of September 21, 2023, by and among Cisco Systems, Inc., a California corporation (Parent), Cisco Merger Sub Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and Splunk Inc., a Delaware corporation (the Company). The Company has been represented by Cleary Gottlieb Steen & Hamilton LLP as its legal counsel. Parent and Merger Sub have been represented by Wachtell, Lipton, Rosen & Katz as their legal counsel.",
+    "expected_output": {
+      "buyer": "Cisco Systems, Inc.",
+      "buyer_representative": "Wachtell, Lipton, Rosen & Katz",
+      "seller": "Splunk Inc.",
+      "seller_representative": "Cleary Gottlieb Steen & Hamilton LLP",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Microsoft",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of September 21, 2023, by and among Cisco Systems, Inc., a California corporation (Parent), Cisco Merger Sub Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and Splunk Inc., a Delaware corporation (the Company). The Company has been represented by Cleary Gottlieb Steen & Hamilton LLP as its legal counsel. Parent and Merger Sub have been represented by Wachtell, Lipton, Rosen & Katz as their legal counsel.",
+    "expected_output": {
+      "buyer": "Cisco Systems, Inc.",
+      "buyer_representative": "Wachtell, Lipton, Rosen & Katz",
+      "seller": "Splunk Inc.",
+      "seller_representative": "Cleary Gottlieb Steen & Hamilton LLP",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "No"
+    }
+  },
+  {
+    "target_company": "Zoom",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of July 18, 2021, by and among Zoom Video Communications, Inc., a Delaware corporation (Parent), Zoom Merger Sub Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and Five9, Inc., a Delaware corporation (the Company). The Company has been represented by Latham & Watkins LLP as its legal counsel. Parent and Merger Sub have been represented by Cooley LLP as their legal counsel.",
+    "expected_output": {
+      "buyer": "Zoom Video Communications, Inc.",
+      "buyer_representative": "Cooley LLP",
+      "seller": "Five9, Inc.",
+      "seller_representative": "Latham & Watkins LLP",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Five9",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of July 18, 2021, by and among Zoom Video Communications, Inc., a Delaware corporation (Parent), Zoom Merger Sub Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and Five9, Inc., a Delaware corporation (the Company). The Company has been represented by Latham & Watkins LLP as its legal counsel. Parent and Merger Sub have been represented by Cooley LLP as their legal counsel. Qatalyst Partners LP has been engaged as financial advisor to the Company.",
+    "expected_output": {
+      "buyer": "Zoom Video Communications, Inc.",
+      "buyer_representative": "Cooley LLP",
+      "seller": "Five9, Inc.",
+      "seller_representative": "Latham & Watkins LLP",
+      "third_party_representation": "Qatalyst Partners LP",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Amazon",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of July 18, 2021, by and among Zoom Video Communications, Inc., a Delaware corporation (Parent), Zoom Merger Sub Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and Five9, Inc., a Delaware corporation (the Company). The Company has been represented by Latham & Watkins LLP as its legal counsel. Parent and Merger Sub have been represented by Cooley LLP as their legal counsel.",
+    "expected_output": {
+      "buyer": "Zoom Video Communications, Inc.",
+      "buyer_representative": "Cooley LLP",
+      "seller": "Five9, Inc.",
+      "seller_representative": "Latham & Watkins LLP",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "No"
+    }
+  },
+  {
+    "target_company": "Workday",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of October 12, 2022, by and among Workday, Inc., a Delaware corporation (Parent), Workday Merger Sub Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and VNDLY, Inc., a Delaware corporation (the Company). The Company has been represented by Cooley LLP as its legal counsel. Parent and Merger Sub have been represented by Wilson Sonsini Goodrich & Rosati, P.C. as their legal counsel.",
+    "expected_output": {
+      "buyer": "Workday, Inc.",
+      "buyer_representative": "Wilson Sonsini Goodrich & Rosati, P.C.",
+      "seller": "VNDLY, Inc.",
+      "seller_representative": "Cooley LLP",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "ServiceNow",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of June 29, 2021, by and among ServiceNow, Inc., a Delaware corporation (Parent), ServiceNow Merger Sub Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and Lightstep, Inc., a Delaware corporation (the Company). The Company has been represented by Fenwick & West LLP as its legal counsel. Parent and Merger Sub have been represented by Cooley LLP as their legal counsel.",
+    "expected_output": {
+      "buyer": "ServiceNow, Inc.",
+      "buyer_representative": "Cooley LLP",
+      "seller": "Lightstep, Inc.",
+      "seller_representative": "Fenwick & West LLP",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Snowflake",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of June 2, 2022, by and among Snowflake Inc., a Delaware corporation (Parent), Snowflake Merger Sub Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and Streamlit Inc., a Delaware corporation (the Company). The Company has been represented by Wilson Sonsini Goodrich & Rosati, P.C. as its legal counsel. Parent and Merger Sub have been represented by Cooley LLP as their legal counsel.",
+    "expected_output": {
+      "buyer": "Snowflake Inc.",
+      "buyer_representative": "Cooley LLP",
+      "seller": "Streamlit Inc.",
+      "seller_representative": "Wilson Sonsini Goodrich & Rosati, P.C.",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Google",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of June 2, 2022, by and among Snowflake Inc., a Delaware corporation (Parent), Snowflake Merger Sub Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and Streamlit Inc., a Delaware corporation (the Company). The Company has been represented by Wilson Sonsini Goodrich & Rosati, P.C. as its legal counsel. Parent and Merger Sub have been represented by Cooley LLP as their legal counsel.",
+    "expected_output": {
+      "buyer": "Snowflake Inc.",
+      "buyer_representative": "Cooley LLP",
+      "seller": "Streamlit Inc.",
+      "seller_representative": "Wilson Sonsini Goodrich & Rosati, P.C.",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "No"
+    }
+  },
+  {
+    "target_company": "Databricks",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of November 4, 2021, by and among Databricks Inc., a Delaware corporation (Parent), Databricks Merger Sub Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and 8080 Labs GmbH, a German limited liability company (the Company). The Company has been represented by Freshfields Bruckhaus Deringer LLP as its legal counsel. Parent and Merger Sub have been represented by Cooley LLP as their legal counsel.",
+    "expected_output": {
+      "buyer": "Databricks Inc.",
+      "buyer_representative": "Cooley LLP",
+      "seller": "8080 Labs GmbH",
+      "seller_representative": "Freshfields Bruckhaus Deringer LLP",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Okta",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of October 8, 2021, by and among Okta, Inc., a Delaware corporation (Parent), Okta Merger Sub Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and Auth0, Inc., a Delaware corporation (the Company). The Company has been represented by Wilson Sonsini Goodrich & Rosati, P.C. as its legal counsel. Parent and Merger Sub have been represented by Cooley LLP as their legal counsel.",
+    "expected_output": {
+      "buyer": "Okta, Inc.",
+      "buyer_representative": "Cooley LLP",
+      "seller": "Auth0, Inc.",
+      "seller_representative": "Wilson Sonsini Goodrich & Rosati, P.C.",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Auth0",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of October 8, 2021, by and among Okta, Inc., a Delaware corporation (Parent), Okta Merger Sub Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and Auth0, Inc., a Delaware corporation (the Company). The Company has been represented by Wilson Sonsini Goodrich & Rosati, P.C. as its legal counsel. Parent and Merger Sub have been represented by Cooley LLP as their legal counsel. Qatalyst Partners LP has been engaged as financial advisor to the Company.",
+    "expected_output": {
+      "buyer": "Okta, Inc.",
+      "buyer_representative": "Cooley LLP",
+      "seller": "Auth0, Inc.",
+      "seller_representative": "Wilson Sonsini Goodrich & Rosati, P.C.",
+      "third_party_representation": "Qatalyst Partners LP",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Apple",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of October 8, 2021, by and among Okta, Inc., a Delaware corporation (Parent), Okta Merger Sub Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and Auth0, Inc., a Delaware corporation (the Company). The Company has been represented by Wilson Sonsini Goodrich & Rosati, P.C. as its legal counsel. Parent and Merger Sub have been represented by Cooley LLP as their legal counsel.",
+    "expected_output": {
+      "buyer": "Okta, Inc.",
+      "buyer_representative": "Cooley LLP",
+      "seller": "Auth0, Inc.",
+      "seller_representative": "Wilson Sonsini Goodrich & Rosati, P.C.",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "No"
+    }
+  },
+  {
+    "target_company": "Atlassian",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of March 15, 2022, by and among Atlassian Corporation Plc, an Australian public company (Parent), Atlassian Merger Sub Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and Loom, Inc., a Delaware corporation (the Company). The Company has been represented by Cooley LLP as its legal counsel. Parent and Merger Sub have been represented by Wilson Sonsini Goodrich & Rosati, P.C. as their legal counsel.",
+    "expected_output": {
+      "buyer": "Atlassian Corporation Plc",
+      "buyer_representative": "Wilson Sonsini Goodrich & Rosati, P.C.",
+      "seller": "Loom, Inc.",
+      "seller_representative": "Cooley LLP",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Loom",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of March 15, 2022, by and among Atlassian Corporation Plc, an Australian public company (Parent), Atlassian Merger Sub Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and Loom, Inc., a Delaware corporation (the Company). The Company has been represented by Cooley LLP as its legal counsel. Parent and Merger Sub have been represented by Wilson Sonsini Goodrich & Rosati, P.C. as their legal counsel. Qatalyst Partners LP has been engaged as financial advisor to the Company.",
+    "expected_output": {
+      "buyer": "Atlassian Corporation Plc",
+      "buyer_representative": "Wilson Sonsini Goodrich & Rosati, P.C.",
+      "seller": "Loom, Inc.",
+      "seller_representative": "Cooley LLP",
+      "third_party_representation": "Qatalyst Partners LP",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Meta",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of March 15, 2022, by and among Atlassian Corporation Plc, an Australian public company (Parent), Atlassian Merger Sub Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and Loom, Inc., a Delaware corporation (the Company). The Company has been represented by Cooley LLP as its legal counsel. Parent and Merger Sub have been represented by Wilson Sonsini Goodrich & Rosati, P.C. as their legal counsel.",
+    "expected_output": {
+      "buyer": "Atlassian Corporation Plc",
+      "buyer_representative": "Wilson Sonsini Goodrich & Rosati, P.C.",
+      "seller": "Loom, Inc.",
+      "seller_representative": "Cooley LLP",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "No"
+    }
+  },
+  {
+    "target_company": "Intuit",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of July 1, 2021, by and among Intuit Inc., a Delaware corporation (Parent), Intuit Merger Sub Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and Mailchimp, Inc., a Delaware corporation (the Company). The Company has been represented by Cooley LLP as its legal counsel. Parent and Merger Sub have been represented by Skadden, Arps, Slate, Meagher & Flom LLP as their legal counsel.",
+    "expected_output": {
+      "buyer": "Intuit Inc.",
+      "buyer_representative": "Skadden, Arps, Slate, Meagher & Flom LLP",
+      "seller": "Mailchimp, Inc.",
+      "seller_representative": "Cooley LLP",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Mailchimp",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of July 1, 2021, by and among Intuit Inc., a Delaware corporation (Parent), Intuit Merger Sub Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and Mailchimp, Inc., a Delaware corporation (the Company). The Company has been represented by Cooley LLP as its legal counsel. Parent and Merger Sub have been represented by Skadden, Arps, Slate, Meagher & Flom LLP as their legal counsel. Qatalyst Partners LP has been engaged as financial advisor to the Company.",
+    "expected_output": {
+      "buyer": "Intuit Inc.",
+      "buyer_representative": "Skadden, Arps, Slate, Meagher & Flom LLP",
+      "seller": "Mailchimp, Inc.",
+      "seller_representative": "Cooley LLP",
+      "third_party_representation": "Qatalyst Partners LP",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Oracle",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of June 28, 2022, by and among Oracle Corporation, a Delaware corporation (Parent), Oracle Merger Sub Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and Cerner Corporation, a Delaware corporation (the Company). The Company has been represented by Skadden, Arps, Slate, Meagher & Flom LLP as its legal counsel. Parent and Merger Sub have been represented by Gibson, Dunn & Crutcher LLP as their legal counsel.",
+    "expected_output": {
+      "buyer": "Oracle Corporation",
+      "buyer_representative": "Gibson, Dunn & Crutcher LLP",
+      "seller": "Cerner Corporation",
+      "seller_representative": "Skadden, Arps, Slate, Meagher & Flom LLP",
+      "third_party_representation": "Not stated",
+      "target_company_mentioned": "Yes"
+    }
+  },
+  {
+    "target_company": "Cerner",
+    "paragraph": "This Agreement and Plan of Merger is entered into as of June 28, 2022, by and among Oracle Corporation, a Delaware corporation (Parent), Oracle Merger Sub Inc., a Delaware corporation and a wholly-owned subsidiary of Parent (Merger Sub), and Cerner Corporation, a Delaware corporation (the Company). The Company has been represented by Skadden, Arps, Slate, Meagher & Flom LLP as its legal counsel. Parent and Merger Sub have been represented by Gibson, Dunn & Crutcher LLP as their legal counsel. Goldman Sachs & Co. LLC has been engaged as financial advisor to the Company.",
+    "expected_output": {
+      "buyer": "Oracle Corporation",
+      "buyer_representative": "Gibson, Dunn & Crutcher LLP",
+      "seller": "Cerner Corporation",
+      "seller_representative": "Skadden, Arps, Slate, Meagher & Flom LLP",
+      "third_party_representation": "Goldman Sachs & Co. LLC",
+      "target_company_mentioned": "Yes"
+    }
+  }
+]

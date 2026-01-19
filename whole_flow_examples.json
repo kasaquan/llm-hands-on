@@ -1,0 +1,44 @@
+[
+    {
+        "user_query": "Is Kirkland & Ellis present in the agreement?",
+        "paragraphs": [
+            "This Stock and Asset Purchase Agreement is entered into as of October 28, 2021, among Purolite Corporation, a Delaware corporation, along with Stefan E. Brodie and Don B. Brodie (collectively referred to as the Sellers), and Ecolab Inc., a Delaware corporation, as the Purchaser. Additionally, Gibson, Dunn & Crutcher LLP, as an independent third-party representative, is engaged for specific advisory roles outlined in this Agreement.",
+            "This Agreement shall be governed by and construed in accordance with the internal laws of the State of Delaware, without giving effect to any choice or conflict of law provision. Each clause within this Agreement shall be interpreted independently, and the invalidity of one clause shall not affect the enforceability of the remaining provisions. Headings are for convenience only and shall not affect the interpretation of this Agreement. Nothing herein shall be construed as limiting or waiving any rights or obligations under applicable law unless expressly stated.",
+            "Such notices, demands, and other communications shall be directed to the Parties at their respective addresses. One Party may be contacted at:\n  1 Ecolab Place\n  St. Paul, Minnesota 55102\n  Attention: General Counsel\n  with a copy (which shall not constitute notice) to:\n  Shearman & Sterling LLP\n  599 Lexington Avenue\n  New York, New York 10022\n  Attention: Adam Miller\n  Another Party may be reached at:\n  Purolite Corporation\n  2201 Renaissance Boulevard\n  King of Prussia, Pennsylvania 19406\n  Attention: Stefan E. Brodie; Howard Brodie\n  with a copy (which shall not constitute notice) to:\n  Cleary Gottlieb Steen & Hamilton LLP\n  One Liberty Plaza\n  New York, New York 10006\n  Attention: John Reynolds; Sarah Lee\n  Additional communications relating to the role of the third-party representative shall be directed to:\n  Gibson, Dunn & Crutcher LLP\n  200 Park Avenue\n  New York, New York 10166\n  Attention: Jane Smith",
+            "All references to the singular include the plural and vice versa, and all references to any gender include all genders. The Parties agree that any ambiguities in the language of this Agreement shall not be construed against either Party. Section headings used in this Agreement are for reference only and shall not affect the meaning or interpretation of any provision."
+        ],
+        "expected_output_1": "The target company is Kirkland & Ellis LLP.",
+        "expected_output_2": [
+            {
+                "Buyer": "Ecolab Inc.",
+                "Buyer Representative": "Not stated",
+                "Seller": "Purolite Corporation",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Advisory roles, Gibson, Dunn & Crutcher LLP",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Ecolab Place",
+                "Buyer Representative": "Shearman & Sterling LLP",
+                "Seller": "Purolite Corporation",
+                "Seller Representative": "Cleary Gottlieb Steen & Hamilton LLP",
+                "Third-Party Representation": "Gibson, Dunn & Crutcher LLP",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "expected_output_3": {
+            "buyer_firm": "Shearman & Sterling LLP",
+            "seller_firm": "Cleary Gottlieb Steen & Hamilton LLP",
+            "third_party": "Gibson, Dunn & Crutcher LLP",
+            "contains_target_firm": false
+        }
+    }
+]
