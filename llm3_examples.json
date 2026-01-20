@@ -1,0 +1,590 @@
+[
+    {
+        "output_2": [
+            {
+                "Buyer": "Ecolab Inc.",
+                "Buyer Representative": "Not stated",
+                "Seller": "Purolite Corporation",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Advisory roles, Gibson, Dunn & Crutcher LLP",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Ecolab Place",
+                "Buyer Representative": "Shearman & Sterling LLP",
+                "Seller": "Purolite Corporation",
+                "Seller Representative": "Cleary Gottlieb Steen & Hamilton LLP",
+                "Third-Party Representation": "Gibson, Dunn & Crutcher LLP",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Shearman & Sterling LLP",
+            "seller_firm": "Cleary Gottlieb Steen & Hamilton LLP",
+            "third_party": "Gibson, Dunn & Crutcher LLP",
+            "contains_target_firm": false
+        }
+    },
+    {
+        "output_2": [
+            {
+                "Buyer": "ANIXTER INC.",
+                "Buyer Representative": "Not stated",
+                "Seller": "AIP/FASTENERS LLC",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "Yes"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Anixter Inc.",
+                "Buyer Representative": "Skadden, Arps, Slate, Meagher & Flom LLP",
+                "Seller": "AIP/FASTENERS LLC",
+                "Seller Representative": "Latham & Watkins LLP",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "Yes"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Skadden, Arps, Slate, Meagher & Flom LLP",
+            "seller_firm": "Latham & Watkins LLP",
+            "third_party": "Not stated",
+            "contains_target_firm": true
+        }
+    },
+    {
+        "output_2": [
+            {
+                "Buyer": "GMXR Acquisition LLC",
+                "Buyer Representative": "Not stated",
+                "Seller": "GMX Resources Inc.",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "GMXR Acquisition LLC",
+                "Buyer Representative": "Faegre Baker Daniels LLP",
+                "Seller": "GMX Resources Inc.",
+                "Seller Representative": "Faegre Baker Daniels LLP",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Faegre Baker Daniels LLP",
+            "seller_firm": "Faegre Baker Daniels LLP",
+            "third_party": "Not stated",
+            "contains_target_firm": false
+        }
+    },
+    {
+        "output_2": [
+            {
+                "Buyer": "DISH WIRELESS L.L.C.",
+                "Buyer Representative": "Not stated",
+                "Seller": "TUCOWS INC.",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "TUCOWS INC.",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "DISH WIRELESS L.L.C.",
+                "Buyer Representative": "Sullivan & Cromwell LLP",
+                "Seller": "TUCOWS INC.",
+                "Seller Representative": "Morgan, Lewis & Bockius LLP",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Sullivan & Cromwell LLP",
+            "seller_firm": "Morgan, Lewis & Bockius LLP",
+            "third_party": "Not stated",
+            "contains_target_firm": false
+        }
+    },
+    {
+        "output_2": [
+            {
+                "Buyer": "Devcon Security Services Corp.",
+                "Buyer Representative": "Not stated",
+                "Seller": "Starpoint, Limited Partnership",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Counsel for Sellers, Holme Roberts & Owen LLP",
+                "Target Company Mentioned": "Yes"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Devcon Security Services Corp.",
+                "Buyer Representative": "Greenberg Traurig, P.A.",
+                "Seller": "Starpoint, Limited Partnership",
+                "Seller Representative": "Holme Roberts & Owen LLP",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "Yes"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Greenberg Traurig, P.A.",
+            "seller_firm": "Holme Roberts & Owen LLP",
+            "third_party": "Not stated",
+            "contains_target_firm": true
+        }
+    },
+    {
+        "output_2": [
+            {
+                "Buyer": "The Pros Entertainment Services, Inc.",
+                "Buyer Representative": "Not stated",
+                "Seller": "Bella Pictures Holdings, LLC",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Not stated",
+            "seller_firm": "Not stated",
+            "third_party": "Not stated",
+            "contains_target_firm": false
+        }
+    },
+    {
+        "output_2": [
+            {
+                "Buyer": "Devcon Security Services Corp.",
+                "Buyer Representative": "Not stated",
+                "Seller": "Starpoint, Limited Partnership; Cable Sentry Corporation; Coral Security, Inc.; Westview Security, Inc.",
+                "Seller Representative": "Holme Roberts & Owen LLP",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "Yes"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Devcon Security Services Corp.",
+                "Buyer Representative": "Greenberg Traurig, P.A.",
+                "Seller": "Starpoint, Limited Partnership",
+                "Seller Representative": "Holme Roberts & Owen LLP",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "Yes"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Greenberg Traurig, P.A.",
+            "seller_firm": "Holme Roberts & Owen LLP",
+            "third_party": "Not stated",
+            "contains_target_firm": true
+        }
+    },
+    {
+        "output_2": [
+            {
+                "Buyer": "Anixter Inc.",
+                "Buyer Representative": "Skadden, Arps, Slate, Meagher & Flom LLP",
+                "Seller": "AIP/FASTENERS LLC",
+                "Seller Representative": "Latham & Watkins LLP",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "Yes"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Skadden, Arps, Slate, Meagher & Flom LLP",
+            "seller_firm": "Latham & Watkins LLP",
+            "third_party": "Not stated",
+            "contains_target_firm": true
+        }
+    },
+    {
+        "output_2": [
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Not stated",
+            "seller_firm": "Not stated",
+            "third_party": "Not stated",
+            "contains_target_firm": false
+        }
+    },
+    {
+        "output_2": [
+            {
+                "Buyer": "MKS Instruments, Inc.",
+                "Buyer Representative": "Not stated",
+                "Seller": "Brooks Automation, Inc.",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Not stated",
+            "seller_firm": "Not stated",
+            "third_party": "Not stated",
+            "contains_target_firm": false
+        }
+    },
+    {
+        "output_2": [
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "China Risk Finance LLC",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "Yes"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "China Risk Finance LLC",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "Yes"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "China Risk Finance LLC",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "Yes"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "China Risk Finance LLC",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "Yes"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Not stated",
+            "seller_firm": "Not stated",
+            "third_party": "Not stated",
+            "contains_target_firm": true
+        }
+    },
+    {
+        "output_2": [
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Shearman & Sterling LLP, Haiwen & Partners",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "China Risk Finance LLC",
+                "Seller Representative": "Shearman & Sterling LLP",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "Yes"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Not stated",
+            "seller_firm": "Shearman & Sterling LLP, Haiwen & Partners",
+            "third_party": "Not stated",
+            "contains_target_firm": true
+        }
+    },
+    {
+        "output_2": [
+            {
+                "Buyer": "Perceptive Life Sciences Master Fund, Ltd.",
+                "Buyer Representative": "Not stated",
+                "Seller": "Athenex, Inc.",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Not stated",
+            "seller_firm": "Not stated",
+            "third_party": "Not stated",
+            "contains_target_firm": false
+        }
+    },
+    {
+        "output_2": [
+            {
+                "Buyer": "TIGER OIL, INC.",
+                "Buyer Representative": "Not stated",
+                "Seller": "DEVCON INTERNATIONAL CORP.",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "TIGER OIL, INC.",
+                "Buyer Representative": "Greenberg Traurig, P.A.",
+                "Seller": "DEVCON INTERNATIONAL CORP.",
+                "Seller Representative": "Akerman Senterfitt",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Greenberg Traurig, P.A.",
+            "seller_firm": "Akerman Senterfitt",
+            "third_party": "Not stated",
+            "contains_target_firm": false
+        }
+    }
+]

@@ -1,0 +1,44 @@
+{
+  "aggregator.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Aggregates analysis from multiple paragraphs into a final structured JSON object.\nConsolidates law firm information and determines if target company appears in any paragraph.\nThe goal is to identify the representative law firms of involved parties and determine if the target company is mentioned, ensuring the results are structured and accurate.",
+      "fields": [
+        {
+          "prefix": "Paragraph Analyses:",
+          "description": "List of extraction results from all paragraphs"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Buyer Firm:",
+          "description": "Law firm representing the Buyer (consolidated from all paragraphs)"
+        },
+        {
+          "prefix": "Seller Firm:",
+          "description": "Law firm representing the Seller (consolidated from all paragraphs)"
+        },
+        {
+          "prefix": "Third Party:",
+          "description": "Third-party law firm mentioned (consolidated from all paragraphs)"
+        },
+        {
+          "prefix": "Contains Target Firm:",
+          "description": "Boolean: true if target company is mentioned in any paragraph, false otherwise"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.1.0",
+      "cloudpickle": "3.1"
+    }
+  }
+}

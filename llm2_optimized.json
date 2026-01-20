@@ -1,0 +1,101 @@
+{
+  "analyzer.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "paragraph": "The Initial Purchasers shall have received from (i) Shearman & Sterling LLP, the U.S. counsel for the Company, an opinion in the form attached hereto as Exhibit 4.1(j)(1) and (ii) Haiwen & Partners, the Chinese counsel for the Company, an opinion in the form attached hereto as Exhibit 4.1(j)(2), each of which shall be addressed to the Initial Purchasers, dated as of Initial Closing Date and be in form and substance reasonably satisfactory to the Initial Purchasers and their counsel. Shearman & Sterling LLP has provided legal services to the Company in connection with this transaction.",
+        "target_company": "The target company is Shearman & Sterling LLP.",
+        "reasoning": "The paragraph discusses legal opinions provided by Shearman & Sterling LLP and Haiwen & Partners for the Company, but it does not identify a buyer or seller. The target company is incorrectly identified as Shearman & Sterling LLP, which is a law firm, not a company involved in the transaction. The actual company involved is not specified in the paragraph.",
+        "buyer": "Not stated",
+        "buyer_representative": "Not stated",
+        "seller": "Not stated",
+        "seller_representative": "Not stated",
+        "third_party_representation": "Shearman & Sterling LLP, Haiwen & Partners",
+        "target_company_mentioned": "No"
+      },
+      {
+        "augmented": true,
+        "paragraph": "After the Initial Closing, the Company may, in its sole discretion, sell, on the same terms and conditions as those contained in this Agreement, up to 3,566,066 additional Series C Preferred Shares (the \"Additional Shares\"), to one or more purchasers (the \"Additional Purchasers\"), provided that (i) such subsequent sale is consummated prior to 90 days after the Initial Closing and (ii) each Additional Purchaser shall become a party to the Transaction Agreements by executing and delivering a counterpart signature page thereto.",
+        "target_company": "The target company is Apple Inc.",
+        "reasoning": "The paragraph discusses the potential sale of additional shares by the Company but does not explicitly mention the name of the Company or any parties involved in the transaction. Therefore, the target company, Apple Inc., is not directly referenced in this paragraph.",
+        "buyer": "Not stated",
+        "buyer_representative": "Not stated",
+        "seller": "Not stated",
+        "seller_representative": "Not stated",
+        "third_party_representation": "Not stated",
+        "target_company_mentioned": "No"
+      },
+      {
+        "paragraph": "All notices, demands, and other communications required or permitted hereunder shall be in writing and shall be served by personal delivery, by registered or certified mail, return receipt requested, or by overnight courier service. Notices to the Buyer shall be sent to:\n  Anixter Inc.\n  2301 Patriot Boulevard\n  Glenview, Illinois 60026\n  Attention: General Counsel\n  with a copy (which shall not constitute notice) to:\n  Skadden, Arps, Slate, Meagher & Flom LLP\n  330 Madison Avenue, 28th Floor\n  New York, New York 10017\n  Attention: Corporate Department\n  Notices to the Seller shall be sent to:\n  AIP/FASTENERS LLC\n  1299 Pennsylvania Avenue NW, Suite 1000\n  Washington, District of Columbia 20004\n  Attention: Legal Department\n  with a copy (which shall not constitute notice) to:\n  Latham & Watkins LLP\n  555 Eleventh Street NW, Suite 1000\n  Washington, District of Columbia 20004\n  Attention: Corporate Counsel",
+        "target_company": "The target company is Anixter.",
+        "buyer": "Anixter Inc.",
+        "buyer_representative": "Skadden, Arps, Slate, Meagher & Flom LLP",
+        "seller": "AIP/FASTENERS LLC",
+        "seller_representative": "Latham & Watkins LLP",
+        "third_party_representation": "Not stated",
+        "target_company_mentioned": "Yes"
+      },
+      {
+        "paragraph": "All notices, demands, and other communications required or permitted hereunder shall be in writing and shall be served by personal delivery, by registered or certified mail, return receipt requested, or by overnight courier service. Notices to the Buyer shall be sent to:\n  TIGER OIL, INC.\n  1500 Main Street, Suite 200\n  Fort Lauderdale, Florida 33301\n  Attention: General Counsel\n  with a copy (which shall not constitute notice) to:\n  Greenberg Traurig, P.A.\n  1221 Brickell Avenue, Suite 2500\n  Miami, Florida 33131\n  Attention: Corporate Department\n  Notices to the Seller shall be sent to:\n  DEVCON INTERNATIONAL CORP.\n  2000 Corporate Boulevard, Suite 300\n  Fort Lauderdale, Florida 33334\n  Attention: Legal Department\n  with a copy (which shall not constitute notice) to:\n  Akerman Senterfitt\n  350 East Las Olas Boulevard, Suite 1600\n  Fort Lauderdale, Florida 33301\n  Attention: Corporate Counsel",
+        "target_company": "The target company is Latham & Watkins LLP.",
+        "buyer": "TIGER OIL, INC.",
+        "buyer_representative": "Greenberg Traurig, P.A.",
+        "seller": "DEVCON INTERNATIONAL CORP.",
+        "seller_representative": "Akerman Senterfitt",
+        "third_party_representation": "Not stated",
+        "target_company_mentioned": "No"
+      }
+    ],
+    "signature": {
+      "instructions": "Analyze the provided paragraph from a legal agreement and determine the specific entities involved with respect to the given target company. Extract and list the names of the buyer, seller, their respective representatives, any third-party representation, and indicate if the target company is mentioned. If any entity or representative is not named, respond with 'Not stated'. Ensure the output includes reasoning outlining the decision-making process.",
+      "fields": [
+        {
+          "prefix": "Paragraph:",
+          "description": "One paragraph from the contract"
+        },
+        {
+          "prefix": "Target Company:",
+          "description": "The identified target company from Step 1"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Buyer:",
+          "description": "Name of the Buyer company"
+        },
+        {
+          "prefix": "Buyer Representative:",
+          "description": "Law firm or representative for the Buyer"
+        },
+        {
+          "prefix": "Seller:",
+          "description": "Name of the Seller company"
+        },
+        {
+          "prefix": "Seller Representative:",
+          "description": "Law firm or representative for the Seller"
+        },
+        {
+          "prefix": "Third Party Representation:",
+          "description": "Any third-party law firms or advisory roles mentioned"
+        },
+        {
+          "prefix": "Target Company Mentioned:",
+          "description": "Boolean: 'Yes' or 'No' indicating if target is explicitly mentioned"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.13",
+      "dspy": "3.1.0",
+      "cloudpickle": "3.1"
+    }
+  }
+}
