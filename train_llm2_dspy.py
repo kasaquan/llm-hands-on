@@ -55,19 +55,6 @@ class AnalyzeParagraph(dspy.Signature):
     target_company_mentioned = dspy.OutputField(desc="Boolean: 'Yes' or 'No' indicating if target is explicitly mentioned")
 
 
-class AggregateResults(dspy.Signature):
-    """
-    Aggregates analysis from multiple paragraphs into a final structured JSON object.
-    Consolidates law firm information and determines if target company appears in any paragraph.
-    """
-    paragraph_analyses = dspy.InputField(desc="List of extraction results from all paragraphs")
-    
-    buyer_firm = dspy.OutputField(desc="Law firm representing the Buyer (consolidated from all paragraphs)")
-    seller_firm = dspy.OutputField(desc="Law firm representing the Seller (consolidated from all paragraphs)")
-    third_party = dspy.OutputField(desc="Third-party law firm mentioned (consolidated from all paragraphs)")
-    contains_target_firm = dspy.OutputField(desc="Boolean: true if target company is mentioned in any paragraph, false otherwise")
-
-
 # Create training examples
 training_examples = []
 for item in train_data:
