@@ -1,0 +1,330 @@
+Your input fields are:
+1. `paragraph_analyses` (str): Concatenated strings of several paragraph analyses.
+Your output fields are:
+1. `reasoning` (str): 
+2. `json_output` (str): A valid JSON string with exactly 4 fields: buyer_firm (string), seller_firm (string), third_party (string), contains_target_firm (boolean). Output ONLY the JSON string, no other text.
+
+All your responses must be strictly structured in the following way:
+
+[[ ## reasoning ## ]]
+{reasoning}
+
+[[ ## json_output ## ]]
+{json_output}
+
+[[ ## completed ## ]]
+
+In adhering to this structure, your objective is: 
+        Aggregates analysis from multiple paragraphs into a final structured JSON object.
+        Consolidates law firm information and determines if target company appears in any paragraph.
+        The goal is to identify the representative law firms of involved parties and determine if the target company is mentioned, ensuring the results are structured and accurate.
+
+---
+
+User message:
+Extracted information: 
+{"Buyer": "Nvidia Corporation", "Buyer Representative": "Not stated", "Seller": "ARM Limited", "Seller Representative": "Not stated", "Third-Party Representation": "Advisory services, Freshfields Bruckhaus Deringer LLP", "Target Company Mentioned": "No"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Nvidia Corporation", "Buyer Representative": "Simpson Thacher & Bartlett LLP", "Seller": "ARM Limited", "Seller Representative": "Davis Polk & Wardwell LLP", "Third-Party Representation": "Freshfields Bruckhaus Deringer LLP", "Target Company Mentioned": "No"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+
+Assistant message:
+[[ ## reasoning ## ]]
+Not supplied for this particular example. 
+
+[[ ## json_output ## ]]
+{"buyer_firm": "Simpson Thacher & Bartlett LLP", "seller_firm": "Davis Polk & Wardwell LLP", "third_party": "Freshfields Bruckhaus Deringer LLP", "contains_target_firm": false}
+
+[[ ## completed ## ]]
+
+---
+
+User message:
+Extracted information: 
+{"Buyer": "Devcon Security Services Corp.", "Buyer Representative": "Not stated", "Seller": "Starpoint, Limited Partnership", "Seller Representative": "Not stated", "Third-Party Representation": "Counsel for Sellers, Holme Roberts & Owen LLP", "Target Company Mentioned": "Yes"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Devcon Security Services Corp.", "Buyer Representative": "Greenberg Traurig, P.A.", "Seller": "Starpoint, Limited Partnership", "Seller Representative": "Holme Roberts & Owen LLP", "Third-Party Representation": "Not stated", "Target Company Mentioned": "Yes"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+
+Assistant message:
+[[ ## reasoning ## ]]
+Not supplied for this particular example. 
+
+[[ ## json_output ## ]]
+{"buyer_firm": "Greenberg Traurig, P.A.", "seller_firm": "Holme Roberts & Owen LLP", "third_party": "Not stated", "contains_target_firm": true}
+
+[[ ## completed ## ]]
+
+---
+
+User message:
+Extracted information: 
+{"Buyer": "DowDuPont Inc.", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "Yes"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "DowDuPont Inc.", "Buyer Representative": "Skadden, Arps, Slate, Meagher & Flom LLP", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "Yes"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+
+Assistant message:
+[[ ## reasoning ## ]]
+Not supplied for this particular example. 
+
+[[ ## json_output ## ]]
+{"buyer_firm": "Skadden, Arps, Slate, Meagher & Flom LLP", "seller_firm": "Not stated", "third_party": "Not stated", "contains_target_firm": true}
+
+[[ ## completed ## ]]
+
+---
+
+User message:
+Extracted information: 
+{"Buyer": "CVS Health Corporation", "Buyer Representative": "Not stated", "Seller": "Aetna Inc.", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "CVS Health Corporation", "Buyer Representative": "Latham & Watkins LLP", "Seller": "Aetna Inc.", "Seller Representative": "Cravath, Swaine & Moore LLP", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+
+Assistant message:
+[[ ## reasoning ## ]]
+Not supplied for this particular example. 
+
+[[ ## json_output ## ]]
+{"buyer_firm": "Latham & Watkins LLP", "seller_firm": "Cravath, Swaine & Moore LLP", "third_party": "Not stated", "contains_target_firm": false}
+
+[[ ## completed ## ]]
+
+---
+
+User message:
+Extracted information: 
+{"Buyer": "MKS Instruments, Inc.", "Buyer Representative": "Not stated", "Seller": "Brooks Automation, Inc.", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+
+Assistant message:
+[[ ## reasoning ## ]]
+Not supplied for this particular example. 
+
+[[ ## json_output ## ]]
+{"buyer_firm": "Not stated", "seller_firm": "Not stated", "third_party": "Not stated", "contains_target_firm": false}
+
+[[ ## completed ## ]]
+
+---
+
+User message:
+Extracted information: 
+{"Buyer": "T-Mobile US, Inc.", "Buyer Representative": "Not stated", "Seller": "Sprint Corporation", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "Yes"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "T-Mobile US, Inc.", "Buyer Representative": "Latham & Watkins LLP", "Seller": "Sprint Corporation", "Seller Representative": "Wachtell, Lipton, Rosen & Katz", "Third-Party Representation": "Not stated", "Target Company Mentioned": "Yes"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+
+Assistant message:
+[[ ## reasoning ## ]]
+Not supplied for this particular example. 
+
+[[ ## json_output ## ]]
+{"buyer_firm": "Latham & Watkins LLP", "seller_firm": "Wachtell, Lipton, Rosen & Katz", "third_party": "Not stated", "contains_target_firm": true}
+
+[[ ## completed ## ]]
+
+---
+
+User message:
+Extracted information: 
+{"Buyer": "Salesforce.com, Inc.", "Buyer Representative": "Not stated", "Seller": "Tableau Software, Inc.", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Salesforce.com, Inc.", "Buyer Representative": "Wilson Sonsini Goodrich & Rosati", "Seller": "Tableau Software, Inc.", "Seller Representative": "Fenwick & West LLP", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+
+Assistant message:
+[[ ## reasoning ## ]]
+Not supplied for this particular example. 
+
+[[ ## json_output ## ]]
+{"buyer_firm": "Wilson Sonsini Goodrich & Rosati", "seller_firm": "Fenwick & West LLP", "third_party": "Not stated", "contains_target_firm": false}
+
+[[ ## completed ## ]]
+
+---
+
+User message:
+Extracted information: 
+{"Buyer": "Ecolab Inc.", "Buyer Representative": "Not stated", "Seller": "Purolite Corporation", "Seller Representative": "Not stated", "Third-Party Representation": "Advisory roles, Gibson, Dunn & Crutcher LLP", "Target Company Mentioned": "No"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Ecolab Place", "Buyer Representative": "Shearman & Sterling LLP", "Seller": "Purolite Corporation", "Seller Representative": "Cleary Gottlieb Steen & Hamilton LLP", "Third-Party Representation": "Gibson, Dunn & Crutcher LLP", "Target Company Mentioned": "No"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+
+Assistant message:
+[[ ## reasoning ## ]]
+Not supplied for this particular example. 
+
+[[ ## json_output ## ]]
+{"buyer_firm": "Shearman & Sterling LLP", "seller_firm": "Cleary Gottlieb Steen & Hamilton LLP", "third_party": "Gibson, Dunn & Crutcher LLP", "contains_target_firm": false}
+
+[[ ## completed ## ]]
+
+---
+
+User message:
+Extracted information: 
+{"Buyer": "United Technologies Corporation", "Buyer Representative": "Not stated", "Seller": "Rockwell Collins", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "United Technologies Corporation", "Buyer Representative": "Cravath, Swaine & Moore LLP", "Seller": "Rockwell Collins", "Seller Representative": "Sullivan & Cromwell LLP", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+
+Assistant message:
+[[ ## reasoning ## ]]
+Not supplied for this particular example. 
+
+[[ ## json_output ## ]]
+{"buyer_firm": "Cravath, Swaine & Moore LLP", "seller_firm": "Sullivan & Cromwell LLP", "third_party": "Not stated", "contains_target_firm": false}
+
+[[ ## completed ## ]]
+
+---
+
+User message:
+Extracted information: 
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "IBM Corporation", "Buyer Representative": "Not stated", "Seller": "Red Hat, Inc.", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "IBM Corporation", "Buyer Representative": "Cleary Gottlieb Steen & Hamilton LLP", "Seller": "Red Hat, Inc.", "Seller Representative": "Skadden, Arps, Slate, Meagher & Flom LLP", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+
+Assistant message:
+[[ ## reasoning ## ]]
+Not supplied for this particular example. 
+
+[[ ## json_output ## ]]
+{"buyer_firm": "Cleary Gottlieb Steen & Hamilton LLP", "seller_firm": "Skadden, Arps, Slate, Meagher & Flom LLP", "third_party": "Not stated", "contains_target_firm": false}
+
+[[ ## completed ## ]]
+
+---
+
+User message:
+Extracted information: 
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+
+Assistant message:
+[[ ## reasoning ## ]]
+Not supplied for this particular example. 
+
+[[ ## json_output ## ]]
+{"buyer_firm": "Not stated", "seller_firm": "Not stated", "third_party": "Not stated", "contains_target_firm": false}
+
+[[ ## completed ## ]]
+
+---
+
+User message:
+Extracted information: 
+{"Buyer": "Bayer AG", "Buyer Representative": "Not stated", "Seller": "Monsanto Company", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "Yes"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Bayer AG", "Buyer Representative": "Sullivan & Cromwell LLP", "Seller": "Monsanto Company", "Seller Representative": "Wachtell, Lipton, Rosen & Katz", "Third-Party Representation": "Not stated", "Target Company Mentioned": "Yes"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+
+Assistant message:
+[[ ## reasoning ## ]]
+Not supplied for this particular example. 
+
+[[ ## json_output ## ]]
+{"buyer_firm": "Sullivan & Cromwell LLP", "seller_firm": "Wachtell, Lipton, Rosen & Katz", "third_party": "Not stated", "contains_target_firm": true}
+
+[[ ## completed ## ]]
+
+---
+
+User message:
+Extracted information: 
+{"Buyer": "Perceptive Life Sciences Master Fund, Ltd.", "Buyer Representative": "Not stated", "Seller": "Athenex, Inc.", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+
+Assistant message:
+[[ ## reasoning ## ]]
+The paragraph analysis provided includes information on a transaction involving Perceptive Life Sciences Master Fund, Ltd. as the buyer and Athenex, Inc. as the seller. However, there is no information about the law firms representing either party or any third-party involvement in terms of legal representation. Additionally, there is no mention of the target company in any of the provided analyses.
+
+[[ ## json_output ## ]]
+{"buyer_firm": "Not stated", "seller_firm": "Not stated", "third_party": "Not stated", "contains_target_firm": false}
+
+[[ ## completed ## ]]
+
+---
+
+User message:
+Extracted information: 
+{"Buyer": "DISH WIRELESS L.L.C.", "Buyer Representative": "Not stated", "Seller": "TUCOWS INC.", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "TUCOWS INC.", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "DISH WIRELESS L.L.C.", "Buyer Representative": "Sullivan & Cromwell LLP", "Seller": "TUCOWS INC.", "Seller Representative": "Morgan, Lewis & Bockius LLP", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+
+Assistant message:
+[[ ## reasoning ## ]]
+The analysis is based on multiple paragraph entries that involve a transaction between DISH WIRELESS L.L.C. as the buyer and TUCOWS INC. as the seller. From the entries, we have identified the buyer’s representative law firm as Sullivan & Cromwell LLP and the seller’s representative law firm as Morgan, Lewis & Bockius LLP. There is no mention of third-party representation or the presence of a target company mentioned across the paragraphs, indicating that the target company is not specified in the context of the given analyses.
+
+[[ ## json_output ## ]]
+{"buyer_firm": "Sullivan & Cromwell LLP", "seller_firm": "Morgan, Lewis & Bockius LLP", "third_party": "Not stated", "contains_target_firm": false}
+
+[[ ## completed ## ]]
+
+---
+
+User message:
+Extracted information: 
+{"Buyer": "Facebook, Inc.", "Buyer Representative": "Not stated", "Seller": "WhatsApp Inc.", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Facebook, Inc.", "Buyer Representative": "Fenwick & West LLP", "Seller": "WhatsApp Inc.", "Seller Representative": "Cooley LLP", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+
+Assistant message:
+[[ ## reasoning ## ]]
+There are multiple entries describing the involvement of Facebook, Inc. as the buyer and WhatsApp Inc. as the seller. Based on the information provided across different analyses, Fenwick & West LLP is identified as the buyer's representative law firm, and Cooley LLP is identified as the seller's representative law firm. No third-party firm is mentioned, and the Target Company Mentioned is consistently noted as "No."
+
+[[ ## json_output ## ]]
+{"buyer_firm": "Fenwick & West LLP", "seller_firm": "Cooley LLP", "third_party": "Not stated", "contains_target_firm": false}
+
+[[ ## completed ## ]]
+
+---
+
+User message:
+Extracted information: 
+{"Buyer": "The Pros Entertainment Services, Inc.", "Buyer Representative": "Not stated", "Seller": "Bella Pictures Holdings, LLC", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+
+Assistant message:
+[[ ## reasoning ## ]]
+The data provided does not mention any specific buyer or seller representatives. All entries consistently show "Not stated" for the law firms representing both the buyer and the seller. Additionally, none of the analyses mention a third-party representation, and the target company is not mentioned in any section.
+
+[[ ## json_output ## ]]
+{"buyer_firm": "Not stated", "seller_firm": "Not stated", "third_party": "Not stated", "contains_target_firm": false}
+
+[[ ## completed ## ]]
+
+---
+
+User message:
+Extracted information: 
+{"Buyer": "DISH WIRELESS L.L.C.", "Buyer Representative": "Not stated", "Seller": "TUCOWS INC.", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "TUCOWS INC.", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "DISH WIRELESS L.L.C.", "Buyer Representative": "Sullivan & Cromwell LLP", "Seller": "TUCOWS INC.", "Seller Representative": "Morgan, Lewis & Bockius LLP", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+
+Assistant message:
+[[ ## reasoning ## ]]
+The analysis includes multiple entries regarding a transaction involving DISH WIRELESS L.L.C. as the buyer and TUCOWS INC. as the seller. The representative law firm for the buyer is identified as Sullivan & Cromwell LLP, while the seller is represented by Morgan, Lewis & Bockius LLP. There is no mention of third-party representation, and the target company is not specified in any of the entries.
+
+[[ ## json_output ## ]]
+{"buyer_firm": "Sullivan & Cromwell LLP", "seller_firm": "Morgan, Lewis & Bockius LLP", "third_party": "Not stated", "contains_target_firm": false}
+
+[[ ## completed ## ]]
+
+---
+
+Respond with the corresponding output fields, starting with the field `[[ ## reasoning ## ]]`, then `[[ ## json_output ## ]]`, and then ending with the marker for `[[ ## completed ## ]]`.
