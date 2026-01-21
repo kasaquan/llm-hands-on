@@ -1,6 +1,6 @@
 [
     {
-        "output_2": [
+        "inputs": [
             {
                 "Buyer": "Ecolab Inc.",
                 "Buyer Representative": "Not stated",
@@ -42,7 +42,7 @@
         }
     },
     {
-        "output_2": [
+        "inputs": [
             {
                 "Buyer": "ANIXTER INC.",
                 "Buyer Representative": "Not stated",
@@ -84,7 +84,7 @@
         }
     },
     {
-        "output_2": [
+        "inputs": [
             {
                 "Buyer": "GMXR Acquisition LLC",
                 "Buyer Representative": "Not stated",
@@ -126,7 +126,7 @@
         }
     },
     {
-        "output_2": [
+        "inputs": [
             {
                 "Buyer": "DISH WIRELESS L.L.C.",
                 "Buyer Representative": "Not stated",
@@ -168,7 +168,7 @@
         }
     },
     {
-        "output_2": [
+        "inputs": [
             {
                 "Buyer": "Devcon Security Services Corp.",
                 "Buyer Representative": "Not stated",
@@ -210,7 +210,7 @@
         }
     },
     {
-        "output_2": [
+        "inputs": [
             {
                 "Buyer": "The Pros Entertainment Services, Inc.",
                 "Buyer Representative": "Not stated",
@@ -252,7 +252,7 @@
         }
     },
     {
-        "output_2": [
+        "inputs": [
             {
                 "Buyer": "Devcon Security Services Corp.",
                 "Buyer Representative": "Not stated",
@@ -294,7 +294,7 @@
         }
     },
     {
-        "output_2": [
+        "inputs": [
             {
                 "Buyer": "Anixter Inc.",
                 "Buyer Representative": "Skadden, Arps, Slate, Meagher & Flom LLP",
@@ -336,7 +336,7 @@
         }
     },
     {
-        "output_2": [
+        "inputs": [
             {
                 "Buyer": "Not stated",
                 "Buyer Representative": "Not stated",
@@ -378,7 +378,7 @@
         }
     },
     {
-        "output_2": [
+        "inputs": [
             {
                 "Buyer": "MKS Instruments, Inc.",
                 "Buyer Representative": "Not stated",
@@ -420,7 +420,7 @@
         }
     },
     {
-        "output_2": [
+        "inputs": [
             {
                 "Buyer": "Not stated",
                 "Buyer Representative": "Not stated",
@@ -462,7 +462,7 @@
         }
     },
     {
-        "output_2": [
+        "inputs": [
             {
                 "Buyer": "Not stated",
                 "Buyer Representative": "Not stated",
@@ -504,7 +504,7 @@
         }
     },
     {
-        "output_2": [
+        "inputs": [
             {
                 "Buyer": "Perceptive Life Sciences Master Fund, Ltd.",
                 "Buyer Representative": "Not stated",
@@ -546,7 +546,7 @@
         }
     },
     {
-        "output_2": [
+        "inputs": [
             {
                 "Buyer": "TIGER OIL, INC.",
                 "Buyer Representative": "Not stated",
@@ -584,6 +584,888 @@
             "buyer_firm": "Greenberg Traurig, P.A.",
             "seller_firm": "Akerman Senterfitt",
             "third_party": "Not stated",
+            "contains_target_firm": false
+        }
+    },
+    {
+        "inputs": [
+            {
+                "Buyer": "Microsoft Corporation",
+                "Buyer Representative": "Not stated",
+                "Seller": "LinkedIn Corporation",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Microsoft Corporation",
+                "Buyer Representative": "Simpson Thacher & Bartlett LLP",
+                "Seller": "LinkedIn Corporation",
+                "Seller Representative": "Wachtell, Lipton, Rosen & Katz",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Simpson Thacher & Bartlett LLP",
+            "seller_firm": "Wachtell, Lipton, Rosen & Katz",
+            "third_party": "Not stated",
+            "contains_target_firm": false
+        }
+    },
+    {
+        "inputs": [
+            {
+                "Buyer": "Amazon.com, Inc.",
+                "Buyer Representative": "Not stated",
+                "Seller": "Whole Foods Market, Inc.",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Advisory services, Cravath, Swaine & Moore LLP",
+                "Target Company Mentioned": "Yes"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Amazon.com, Inc.",
+                "Buyer Representative": "Davis Polk & Wardwell LLP",
+                "Seller": "Whole Foods Market, Inc.",
+                "Seller Representative": "Weil, Gotshal & Manges LLP",
+                "Third-Party Representation": "Cravath, Swaine & Moore LLP",
+                "Target Company Mentioned": "Yes"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Davis Polk & Wardwell LLP",
+            "seller_firm": "Weil, Gotshal & Manges LLP",
+            "third_party": "Cravath, Swaine & Moore LLP",
+            "contains_target_firm": true
+        }
+    },
+    {
+        "inputs": [
+            {
+                "Buyer": "Facebook, Inc.",
+                "Buyer Representative": "Not stated",
+                "Seller": "WhatsApp Inc.",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Facebook, Inc.",
+                "Buyer Representative": "Fenwick & West LLP",
+                "Seller": "WhatsApp Inc.",
+                "Seller Representative": "Cooley LLP",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Fenwick & West LLP",
+            "seller_firm": "Cooley LLP",
+            "third_party": "Not stated",
+            "contains_target_firm": false
+        }
+    },
+    {
+        "inputs": [
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Oracle Corporation",
+                "Buyer Representative": "Not stated",
+                "Seller": "Sun Microsystems, Inc.",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Oracle Corporation",
+                "Buyer Representative": "Wilson Sonsini Goodrich & Rosati",
+                "Seller": "Sun Microsystems, Inc.",
+                "Seller Representative": "Skadden, Arps, Slate, Meagher & Flom LLP",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Wilson Sonsini Goodrich & Rosati",
+            "seller_firm": "Skadden, Arps, Slate, Meagher & Flom LLP",
+            "third_party": "Not stated",
+            "contains_target_firm": false
+        }
+    },
+    {
+        "inputs": [
+            {
+                "Buyer": "The Walt Disney Company",
+                "Buyer Representative": "Not stated",
+                "Seller": "21st Century Fox",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "Yes"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "The Walt Disney Company",
+                "Buyer Representative": "Cravath, Swaine & Moore LLP",
+                "Seller": "21st Century Fox",
+                "Seller Representative": "Wachtell, Lipton, Rosen & Katz",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "Yes"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Cravath, Swaine & Moore LLP",
+            "seller_firm": "Wachtell, Lipton, Rosen & Katz",
+            "third_party": "Not stated",
+            "contains_target_firm": true
+        }
+    },
+    {
+        "inputs": [
+            {
+                "Buyer": "AT&T Inc.",
+                "Buyer Representative": "Not stated",
+                "Seller": "Time Warner Inc.",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "AT&T Inc.",
+                "Buyer Representative": "Sullivan & Cromwell LLP",
+                "Seller": "Time Warner Inc.",
+                "Seller Representative": "Cravath, Swaine & Moore LLP",
+                "Third-Party Representation": "Paul, Weiss, Rifkind, Wharton & Garrison LLP",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Sullivan & Cromwell LLP",
+            "seller_firm": "Cravath, Swaine & Moore LLP",
+            "third_party": "Paul, Weiss, Rifkind, Wharton & Garrison LLP",
+            "contains_target_firm": false
+        }
+    },
+    {
+        "inputs": [
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Not stated",
+            "seller_firm": "Not stated",
+            "third_party": "Not stated",
+            "contains_target_firm": false
+        }
+    },
+    {
+        "inputs": [
+            {
+                "Buyer": "Verizon Communications Inc.",
+                "Buyer Representative": "Not stated",
+                "Seller": "Yahoo! Inc.",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Verizon Communications Inc.",
+                "Buyer Representative": "Debevoise & Plimpton LLP",
+                "Seller": "Yahoo! Inc.",
+                "Seller Representative": "Skadden, Arps, Slate, Meagher & Flom LLP",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Debevoise & Plimpton LLP",
+            "seller_firm": "Skadden, Arps, Slate, Meagher & Flom LLP",
+            "third_party": "Not stated",
+            "contains_target_firm": false
+        }
+    },
+    {
+        "inputs": [
+            {
+                "Buyer": "Bayer AG",
+                "Buyer Representative": "Not stated",
+                "Seller": "Monsanto Company",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "Yes"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Bayer AG",
+                "Buyer Representative": "Sullivan & Cromwell LLP",
+                "Seller": "Monsanto Company",
+                "Seller Representative": "Wachtell, Lipton, Rosen & Katz",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "Yes"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Sullivan & Cromwell LLP",
+            "seller_firm": "Wachtell, Lipton, Rosen & Katz",
+            "third_party": "Not stated",
+            "contains_target_firm": true
+        }
+    },
+    {
+        "inputs": [
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Not stated",
+            "seller_firm": "Not stated",
+            "third_party": "Not stated",
+            "contains_target_firm": false
+        }
+    },
+    {
+        "inputs": [
+            {
+                "Buyer": "CVS Health Corporation",
+                "Buyer Representative": "Not stated",
+                "Seller": "Aetna Inc.",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "CVS Health Corporation",
+                "Buyer Representative": "Latham & Watkins LLP",
+                "Seller": "Aetna Inc.",
+                "Seller Representative": "Cravath, Swaine & Moore LLP",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Latham & Watkins LLP",
+            "seller_firm": "Cravath, Swaine & Moore LLP",
+            "third_party": "Not stated",
+            "contains_target_firm": false
+        }
+    },
+    {
+        "inputs": [
+            {
+                "Buyer": "Broadcom Inc.",
+                "Buyer Representative": "Not stated",
+                "Seller": "CA Technologies",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Advisory role, Kirkland & Ellis LLP",
+                "Target Company Mentioned": "Yes"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Broadcom Inc.",
+                "Buyer Representative": "Wachtell, Lipton, Rosen & Katz",
+                "Seller": "CA Technologies",
+                "Seller Representative": "Simpson Thacher & Bartlett LLP",
+                "Third-Party Representation": "Kirkland & Ellis LLP",
+                "Target Company Mentioned": "Yes"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Wachtell, Lipton, Rosen & Katz",
+            "seller_firm": "Simpson Thacher & Bartlett LLP",
+            "third_party": "Kirkland & Ellis LLP",
+            "contains_target_firm": true
+        }
+    },
+    {
+        "inputs": [
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "IBM Corporation",
+                "Buyer Representative": "Not stated",
+                "Seller": "Red Hat, Inc.",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "IBM Corporation",
+                "Buyer Representative": "Cleary Gottlieb Steen & Hamilton LLP",
+                "Seller": "Red Hat, Inc.",
+                "Seller Representative": "Skadden, Arps, Slate, Meagher & Flom LLP",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Cleary Gottlieb Steen & Hamilton LLP",
+            "seller_firm": "Skadden, Arps, Slate, Meagher & Flom LLP",
+            "third_party": "Not stated",
+            "contains_target_firm": false
+        }
+    },
+    {
+        "inputs": [
+            {
+                "Buyer": "Salesforce.com, Inc.",
+                "Buyer Representative": "Not stated",
+                "Seller": "Tableau Software, Inc.",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Salesforce.com, Inc.",
+                "Buyer Representative": "Wilson Sonsini Goodrich & Rosati",
+                "Seller": "Tableau Software, Inc.",
+                "Seller Representative": "Fenwick & West LLP",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Wilson Sonsini Goodrich & Rosati",
+            "seller_firm": "Fenwick & West LLP",
+            "third_party": "Not stated",
+            "contains_target_firm": false
+        }
+    },
+    {
+        "inputs": [
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Not stated",
+            "seller_firm": "Not stated",
+            "third_party": "Not stated",
+            "contains_target_firm": false
+        }
+    },
+    {
+        "inputs": [
+            {
+                "Buyer": "United Technologies Corporation",
+                "Buyer Representative": "Not stated",
+                "Seller": "Rockwell Collins",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "United Technologies Corporation",
+                "Buyer Representative": "Cravath, Swaine & Moore LLP",
+                "Seller": "Rockwell Collins",
+                "Seller Representative": "Sullivan & Cromwell LLP",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Cravath, Swaine & Moore LLP",
+            "seller_firm": "Sullivan & Cromwell LLP",
+            "third_party": "Not stated",
+            "contains_target_firm": false
+        }
+    },
+    {
+        "inputs": [
+            {
+                "Buyer": "DowDuPont Inc.",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "Yes"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "DowDuPont Inc.",
+                "Buyer Representative": "Skadden, Arps, Slate, Meagher & Flom LLP",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "Yes"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Skadden, Arps, Slate, Meagher & Flom LLP",
+            "seller_firm": "Not stated",
+            "third_party": "Not stated",
+            "contains_target_firm": true
+        }
+    },
+    {
+        "inputs": [
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Marathon Petroleum Corporation",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Marathon Petroleum Corporation",
+                "Seller Representative": "Davis Polk & Wardwell LLP",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Not stated",
+            "seller_firm": "Davis Polk & Wardwell LLP",
+            "third_party": "Not stated",
+            "contains_target_firm": false
+        }
+    },
+    {
+        "inputs": [
+            {
+                "Buyer": "T-Mobile US, Inc.",
+                "Buyer Representative": "Not stated",
+                "Seller": "Sprint Corporation",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "Yes"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "T-Mobile US, Inc.",
+                "Buyer Representative": "Latham & Watkins LLP",
+                "Seller": "Sprint Corporation",
+                "Seller Representative": "Wachtell, Lipton, Rosen & Katz",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "Yes"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Latham & Watkins LLP",
+            "seller_firm": "Wachtell, Lipton, Rosen & Katz",
+            "third_party": "Not stated",
+            "contains_target_firm": true
+        }
+    },
+    {
+        "inputs": [
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Not stated",
+            "seller_firm": "Not stated",
+            "third_party": "Not stated",
+            "contains_target_firm": false
+        }
+    },
+    {
+        "inputs": [
+            {
+                "Buyer": "Nvidia Corporation",
+                "Buyer Representative": "Not stated",
+                "Seller": "ARM Limited",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Advisory services, Freshfields Bruckhaus Deringer LLP",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Nvidia Corporation",
+                "Buyer Representative": "Simpson Thacher & Bartlett LLP",
+                "Seller": "ARM Limited",
+                "Seller Representative": "Davis Polk & Wardwell LLP",
+                "Third-Party Representation": "Freshfields Bruckhaus Deringer LLP",
+                "Target Company Mentioned": "No"
+            },
+            {
+                "Buyer": "Not stated",
+                "Buyer Representative": "Not stated",
+                "Seller": "Not stated",
+                "Seller Representative": "Not stated",
+                "Third-Party Representation": "Not stated",
+                "Target Company Mentioned": "No"
+            }
+        ],
+        "answer": {
+            "buyer_firm": "Simpson Thacher & Bartlett LLP",
+            "seller_firm": "Davis Polk & Wardwell LLP",
+            "third_party": "Freshfields Bruckhaus Deringer LLP",
             "contains_target_firm": false
         }
     }
