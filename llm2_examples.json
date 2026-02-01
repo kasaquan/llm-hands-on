@@ -398,18 +398,6 @@
   },
   {
     "target_company": "The target company is Apple Inc.",
-    "paragraph": "The Company hereby represents and warrants to the Purchasers that, except as set forth on the Disclosure Schedule attached to this Agreement, each of the statements contained in this Article 2 is true, correct and complete as of the Initial Closing Date and shall be true and correct as of such other Closing. The Disclosure Schedule shall be arranged in sections corresponding to the numbered and lettered sections and subsections contained in Article II and shall also qualify such other sections and subsections in this Article II to the extent it is reasonably evident that such disclosure is applicable to such other sections and subsections.",
-    "answer": {
-      "Buyer": "Not stated",
-      "Buyer Representative": "Not stated",
-      "Seller": "China Risk Finance LLC",
-      "Seller Representative": "Not stated",
-      "Third-Party Representation": "Not stated",
-      "Target Company Mentioned": "No"
-    }
-  },
-  {
-    "target_company": "The target company is Apple Inc.",
     "paragraph": "Subject to the terms and conditions of this Agreement, each Purchaser agrees to purchase at the Closing and the Company agrees to sell and issue to each Purchaser at the Closing that number of Series C Preferred Shares set forth opposite each Purchaser's name on Schedule I at a purchase price of $26.64 per share. The Series C Preferred Shares issued to the Purchasers pursuant to this Agreement shall be referred to in this Agreement as the \"Shares\".",
     "answer": {
       "Buyer": "Not stated",
@@ -430,18 +418,6 @@
       "Seller Representative": "Not stated",
       "Third-Party Representation": "Not stated",
       "Target Company Mentioned": "No"
-    }
-  },
-  {
-    "target_company": "The target company is China Risk Finance LLC.",
-    "paragraph": "This Series C Preferred Share Purchase Agreement is entered into as of July 1, 2015 by and among China Risk Finance LLC, a Delaware limited liability company (the \"Company\"), and the investors listed on Schedule I attached hereto (each individually a \"Purchaser\" and, collectively, the \"Purchasers\"). The Company plans to sell to the Purchasers, and the Purchasers plan to purchase from China Risk Finance LLC, Series C Preferred Shares of the Company, upon the terms and subject to the conditions set forth herein.",
-    "answer": {
-      "Buyer": "Not stated",
-      "Buyer Representative": "Not stated",
-      "Seller": "China Risk Finance LLC",
-      "Seller Representative": "Not stated",
-      "Third-Party Representation": "Not stated",
-      "Target Company Mentioned": "Yes"
     }
   },
   {
@@ -469,78 +445,6 @@
     }
   },
   {
-    "target_company": "The target company is China Risk Finance LLC.",
-    "paragraph": "At the Initial Closing, China Risk Finance LLC shall sell to the Purchasers identified on Schedule I as \"Initial Purchasers\" (the \"Initial Purchasers\"), and the Initial Purchasers shall purchase from the Company, an aggregate of 187,688 Shares for an aggregate purchase price of $5.0 million. All references to \"$\" in this Agreement will mean US$. The purchase and sale of each Initial Purchaser's Shares at the Initial Closing shall occur simultaneously.",
-    "answer": {
-      "Buyer": "Not stated",
-      "Buyer Representative": "Not stated",
-      "Seller": "China Risk Finance LLC",
-      "Seller Representative": "Not stated",
-      "Third-Party Representation": "Not stated",
-      "Target Company Mentioned": "Yes"
-    }
-  },
-  {
-    "target_company": "The target company is China Risk Finance LLC.",
-    "paragraph": "No dividend, distribution, redemption, recapitalization or other transaction involving the equity securities of China Risk Finance LLC, or distribution or payment to any of the Members or any of their relatives or Affiliates has occurred. No capital expenditures by the Company or any of the CRF Entities in excess of $500,000 have been made. No tax liability has been incurred except in the ordinary course of business.",
-    "answer": {
-      "Buyer": "Not stated",
-      "Buyer Representative": "Not stated",
-      "Seller": "China Risk Finance LLC",
-      "Seller Representative": "Not stated",
-      "Third-Party Representation": "Not stated",
-      "Target Company Mentioned": "Yes"
-    }
-  },
-  {
-    "target_company": "The target company is China Risk Finance LLC.",
-    "paragraph": "After the Initial Closing, China Risk Finance LLC may, in its sole discretion, sell, on the same terms and conditions as those contained in this Agreement, up to 3,566,066 additional Series C Preferred Shares (the \"Additional Shares\"), to one or more purchasers (the \"Additional Purchasers\"), provided that (i) such subsequent sale is consummated prior to 90 days after the Initial Closing and (ii) each Additional Purchaser shall become a party to the Transaction Agreements by executing and delivering a counterpart signature page thereto.",
-    "answer": {
-      "Buyer": "Not stated",
-      "Buyer Representative": "Not stated",
-      "Seller": "China Risk Finance LLC",
-      "Seller Representative": "Not stated",
-      "Third-Party Representation": "Not stated",
-      "Target Company Mentioned": "Yes"
-    }
-  },
-  {
-    "target_company": "The target company is China Risk Finance LLC.",
-    "paragraph": "China Risk Finance LLC hereby represents and warrants to the Purchasers that, except as set forth on the Disclosure Schedule attached to this Agreement, each of the statements contained in this Article 2 is true, correct and complete as of the Initial Closing Date and shall be true and correct as of such other Closing. The Disclosure Schedule shall be arranged in sections corresponding to the numbered and lettered sections and subsections contained in Article II.",
-    "answer": {
-      "Buyer": "Not stated",
-      "Buyer Representative": "Not stated",
-      "Seller": "China Risk Finance LLC",
-      "Seller Representative": "Not stated",
-      "Third-Party Representation": "Not stated",
-      "Target Company Mentioned": "Yes"
-    }
-  },
-  {
-    "target_company": "The target company is China Risk Finance LLC.",
-    "paragraph": "Subject to the terms and conditions of this Agreement, each Purchaser agrees to purchase at the Closing and China Risk Finance LLC agrees to sell and issue to each Purchaser at the Closing that number of Series C Preferred Shares set forth opposite each Purchaser's name on Schedule I at a purchase price of $26.64 per share. The Series C Preferred Shares issued to the Purchasers pursuant to this Agreement shall be referred to in this Agreement as the \"Shares\".",
-    "answer": {
-      "Buyer": "Not stated",
-      "Buyer Representative": "Not stated",
-      "Seller": "China Risk Finance LLC",
-      "Seller Representative": "Not stated",
-      "Third-Party Representation": "Not stated",
-      "Target Company Mentioned": "Yes"
-    }
-  },
-  {
-    "target_company": "The target company is China Capital Financial LLC.",
-    "paragraph": "China Capital Financial LLC (\"CCF\") is a wholly owned subsidiary of the Company and is a limited liability company duly formed, validly existing and in good standing under the laws of the State of Delaware. China Capital Financial LLC has all requisite power and authority (limited liability company and otherwise) to own, lease and operate its properties and to carry on its Business. CCF is duly qualified to transact business and is in good standing in each jurisdiction in which the failure to so qualify would have a material adverse effect on the business, assets, condition or results of operations of China Capital Financial LLC.",
-    "answer": {
-      "Buyer": "Not stated",
-      "Buyer Representative": "Not stated",
-      "Seller": "Not stated",
-      "Seller Representative": "Not stated",
-      "Third-Party Representation": "Not stated",
-      "Target Company Mentioned": "Yes"
-    }
-  },
-  {
     "target_company": "The target company is Shearman & Sterling LLP.",
     "paragraph": "The Initial Purchasers shall have received from Shearman & Sterling LLP, the U.S. counsel for the Company, an opinion in the form attached hereto as Exhibit 4.1(j)(1), which shall be addressed to the Initial Purchasers, dated as of Initial Closing Date and be in form and substance reasonably satisfactory to the Initial Purchasers and their counsel. Shearman & Sterling LLP has acted as legal counsel to the Company in connection with the transactions contemplated by this Agreement and has provided legal advice and services throughout the negotiation and execution of this Agreement.",
     "answer": {
@@ -548,18 +452,6 @@
       "Buyer Representative": "Not stated",
       "Seller": "Not stated",
       "Seller Representative": "Shearman & Sterling LLP",
-      "Third-Party Representation": "Not stated",
-      "Target Company Mentioned": "Yes"
-    }
-  },
-  {
-    "target_company": "The target company is China Risk Finance LLC.",
-    "paragraph": "To the Company's and the CRF Entities' knowledge, no third party has claimed or has reason to claim that any person employed by or affiliated with China Risk Finance LLC or any of the CRF Entities has violated or may be violating any of the terms or conditions of any contract or covenant relating to employment, patents, assignment of inventions, proprietary information disclosure, non-competition or non-solicitation either with China Risk Finance LLC, any of the CRF Entities or with another entity.",
-    "answer": {
-      "Buyer": "Not stated",
-      "Buyer Representative": "Not stated",
-      "Seller": "Not stated",
-      "Seller Representative": "Not stated",
       "Third-Party Representation": "Not stated",
       "Target Company Mentioned": "Yes"
     }

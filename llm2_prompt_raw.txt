@@ -1,0 +1,61 @@
+You are tasked with analyzing high-stakes transactional legal documents to ensure precise extraction of specific entities related to a designated target company.
+
+Process the given paragraph from a legal agreement to accurately identify:
+1. Buyer: The name of the purchasing company (use "Not stated" if only generic terms like "Buyer" or "Purchaser" appear)
+2. Buyer Representative: Law firm or legal counsel representing the Buyer
+3. Seller: The name of the selling company (use "Not stated" if only generic terms like "Seller" or "Company" appear)
+4. Seller Representative: Law firm or legal counsel representing the Seller
+5. Third-Party Representation: Any third-party law firms or advisory roles mentioned
+6. Target Company Mentioned: "Yes" if the target company name appears in the paragraph, "No" otherwise
+
+Rules:
+- Replace entities that are not explicitly named with "Not stated"
+- Do not use generic terms like "the Company", "the Purchaser", "the Buyer" as entity names
+- Output ONLY a valid JSON object, no other text or explanation
+
+JSON Output Schema:
+{"Buyer": "string", "Buyer Representative": "string", "Seller": "string", "Seller Representative": "string", "Third-Party Representation": "string", "Target Company Mentioned": "Yes or No"}
+
+---
+
+Target company context:
+The target company is China Risk Finance LLC.
+
+Paragraph:
+No dividend, distribution, redemption, recapitalization or other transaction involving the equity securities of China Risk Finance LLC, or distribution or payment to any of the Members or any of their relatives or Affiliates has occurred. No capital expenditures by the Company or any of the CRF Entities in excess of $500,000 have been made. No tax liability has been incurred except in the ordinary course of business.
+
+Output:
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "Yes"}
+
+---
+
+Target company context:
+The target company is Apple Inc.
+
+Paragraph:
+After the Initial Closing, the Company may, in its sole discretion, sell, on the same terms and conditions as those contained in this Agreement, up to 3,566,066 additional Series C Preferred Shares (the "Additional Shares"), to one or more purchasers (the "Additional Purchasers"), provided that (i) such subsequent sale is consummated prior to 90 days after the Initial Closing and (ii) each Additional Purchaser shall become a party to the Transaction Agreements by executing and delivering a counterpart signature page thereto.
+
+Output:
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+
+---
+
+Target company context:
+The target company is Google.
+
+Paragraph:
+At the Closing, the Company shall sell, transfer, assign and deliver to Buyer, and Buyer shall purchase, accept, assume and receive, all right, title and interest in and to the Purchased Assets as of the Closing whether tangible or intangible, personal and located in the United States and possessed by the Company, free and clear of any lien, mortgage, security interest or other encumbrance. The Purchased Assets include all customer deposits for weddings, albums, and associated products and services received by the Company prior to the Closing that relate to the Transferred Contracts, all accounts receivable relating to Transferred Contracts, and all rights in, to and under the Contracts set forth on the schedules, including all open customer orders set forth thereon and all receivables due after the Closing Date pursuant to such Contracts.
+
+Output:
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
+
+---
+
+Target company context:
+The target company is Davis Polk & Wardwell LLP.
+
+Paragraph:
+WHEREAS, Seller's wholly owned Subsidiary, Tucows (Delaware) Inc., a Delaware corporation, is the sole shareholder of Ting, Inc., a Delaware corporation ("Ting"); WHEREAS, Seller desires to sell (or cause to be sold), and Buyer desires to purchase, certain assets and Buyer is willing to assume certain liabilities, in each case in connection with the Business upon the terms and subject to the conditions set forth herein; and WHEREAS, concurrently with the entry into this Agreement, the Parties or their respective Affiliates have entered into the Ancillary Agreements, Seller and each of the Seller Entities have entered into and delivered the Seller Release and Seller has delivered a duly executed IRS Form W-9 with respect to Seller and each Seller Entity.
+
+Output:
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "TUCOWS INC.", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}

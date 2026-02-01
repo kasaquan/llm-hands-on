@@ -2,8 +2,8 @@ import dspy
 import json
 import os
 import random
+import re
 import warnings
-import mlflow
 
 # Suppress Pydantic serialization warnings (non-critical)
 warnings.filterwarnings("ignore", category=UserWarning, module="pydantic")
@@ -39,23 +39,33 @@ teacher_llm = dspy.LM(model="openai/gpt-4o", api_key=openai_api_key)
 class AnalyzeParagraph(dspy.Signature):
     """
     Analyzes a paragraph from a legal file to extract required specific entities relative to the target company.
+    1. Buyer's representative law firm
+    2. Seller's representative law firm
+    3. Any third-party law firm present
+    4. Whether the target company is mentioned in the paragraph
+
     If an entity is not mentioned, use 'Not stated'.
     If an entity does not have a name, use 'Not stated', don't use 'the Company', 'the Purchaser', 'the Investor', etc.
+    Output ONLY valid JSON with no additional text.
     """
     paragraph = dspy.InputField(desc="One paragraph from the contract")
     target_company = dspy.InputField(desc="The identified target company from Step 1")
     
-    buyer = dspy.OutputField(desc="Name of the Buyer company")
-    buyer_representative = dspy.OutputField(desc="Law firm or representative for the Buyer")
-    
-    seller = dspy.OutputField(desc="Name of the Seller company")
-    seller_representative = dspy.OutputField(desc="Law firm or representative for the Seller")
-    
-    third_party_representation = dspy.OutputField(desc="Any third-party law firms or advisory roles mentioned")
-    target_company_mentioned = dspy.OutputField(desc="Boolean: 'Yes' or 'No' indicating if target is explicitly mentioned")
+    json_output = dspy.OutputField(desc='A valid JSON object with exactly these keys: {"Buyer": "string", "Buyer Representative": "string", "Seller": "string", "Seller Representative": "string", "Third-Party Representation": "string", "Target Company Mentioned": "Yes or No"}. Output ONLY the JSON, no other text.')
 
 
-# Create training examples
+# Helper to create JSON output string from answer dict
+def create_json_output(answer):
+    return json.dumps({
+        "Buyer": answer.get('Buyer', 'Not stated'),
+        "Buyer Representative": answer.get('Buyer Representative', 'Not stated'),
+        "Seller": answer.get('Seller', 'Not stated'),
+        "Seller Representative": answer.get('Seller Representative', 'Not stated'),
+        "Third-Party Representation": answer.get('Third-Party Representation', 'Not stated'),
+        "Target Company Mentioned": answer.get('Target Company Mentioned', 'No')
+    })
+
+# Create training examples with single JSON output field
 training_examples = []
 for item in train_data:
     answer = item['answer']
@@ -63,12 +73,7 @@ for item in train_data:
         dspy.Example(
             paragraph=item['paragraph'],
             target_company=item['target_company'],
-            buyer=answer.get('Buyer', 'Not stated'),
-            buyer_representative=answer.get('Buyer Representative', 'Not stated'),
-            seller=answer.get('Seller', 'Not stated'),
-            seller_representative=answer.get('Seller Representative', 'Not stated'),
-            third_party_representation=answer.get('Third-Party Representation', 'Not stated'),
-            target_company_mentioned=answer.get('Target Company Mentioned', 'No')
+            json_output=create_json_output(answer)
         ).with_inputs("paragraph", "target_company")
     )
 
@@ -80,12 +85,7 @@ for item in test_data[:10] if len(test_data) > 10 else test_data:  # Use subset 
         dspy.Example(
             paragraph=item['paragraph'],
             target_company=item['target_company'],
-            buyer=answer.get('Buyer', 'Not stated'),
-            buyer_representative=answer.get('Buyer Representative', 'Not stated'),
-            seller=answer.get('Seller', 'Not stated'),
-            seller_representative=answer.get('Seller Representative', 'Not stated'),
-            third_party_representation=answer.get('Third-Party Representation', 'Not stated'),
-            target_company_mentioned=answer.get('Target Company Mentioned', 'No')
+            json_output=create_json_output(answer)
         ).with_inputs("paragraph", "target_company")
     )
 
@@ -97,12 +97,12 @@ for item in test_data:
         'paragraph': item['paragraph'],
         'target_company': item['target_company'],
         'expected_output': {
-            'buyer': answer.get('Buyer', 'Not stated'),
-            'buyer_representative': answer.get('Buyer Representative', 'Not stated'),
-            'seller': answer.get('Seller', 'Not stated'),
-            'seller_representative': answer.get('Seller Representative', 'Not stated'),
-            'third_party_representation': answer.get('Third-Party Representation', 'Not stated'),
-            'target_company_mentioned': answer.get('Target Company Mentioned', 'No')
+            'Buyer': answer.get('Buyer', 'Not stated'),
+            'Buyer Representative': answer.get('Buyer Representative', 'Not stated'),
+            'Seller': answer.get('Seller', 'Not stated'),
+            'Seller Representative': answer.get('Seller Representative', 'Not stated'),
+            'Third-Party Representation': answer.get('Third-Party Representation', 'Not stated'),
+            'Target Company Mentioned': answer.get('Target Company Mentioned', 'No')
         }
     })
 
@@ -110,9 +110,10 @@ for item in test_data:
 class ParagraphAnalysisModule(dspy.Module):
     def __init__(self):
         super().__init__()
-        self.analyzer = dspy.ChainOfThought(AnalyzeParagraph)
+        # Use dspy.Predict instead of ChainOfThought to avoid reasoning output
+        # The online eval system expects direct JSON output without reasoning
+        self.analyzer = dspy.Predict(AnalyzeParagraph)
     
-    @mlflow.trace()
     def forward(self, paragraph, target_company):
         result = self.analyzer(paragraph=paragraph, target_company=target_company)
         return result
@@ -133,22 +134,38 @@ def validate_output(example, pred, trace=None):
     Returns a normalized score from 0.0 to 1.0 based on how many fields are correct.
     Each correct field = 1/6 points, normalized to 0.0-1.0 range.
     """
-    fields = ['buyer', 'buyer_representative', 'seller', 'seller_representative', 
-              'third_party_representation', 'target_company_mentioned']
+    fields = ['Buyer', 'Buyer Representative', 'Seller', 'Seller Representative', 
+              'Third-Party Representation', 'Target Company Mentioned']
     
     max_score = len(fields)
     score = 0.0
     
+    # Parse expected JSON from example
+    try:
+        expected_json = json.loads(getattr(example, 'json_output', '{}'))
+    except json.JSONDecodeError:
+        return 0.0
+    
+    # Parse predicted JSON
+    try:
+        pred_json_str = getattr(pred, 'json_output', '{}')
+        # Try to extract JSON if mixed with other text
+        json_match = re.search(r'\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}', pred_json_str, re.DOTALL)
+        if json_match:
+            pred_json_str = json_match.group(0)
+        predicted_json = json.loads(pred_json_str)
+    except json.JSONDecodeError:
+        return 0.0
+    
     for field in fields:
-        # Skip if field doesn't exist
-        if not hasattr(pred, field):
-            continue
-        
-        expected_val = getattr(example, field, "").strip()
-        predicted_val = getattr(pred, field, "").strip()
+        expected_val = str(expected_json.get(field, "")).strip().lower()
+        predicted_val = str(predicted_json.get(field, "")).strip().lower()
         
         # Check if field is correct (case-insensitive matching)
-        if expected_val.lower() == predicted_val.lower():
+        if expected_val == predicted_val:
+            score += 1.0
+        # Handle "Not stated" variations
+        elif expected_val == "not stated" and predicted_val in ["not stated", "none", "n/a", ""]:
             score += 1.0
     
     # Normalize to 0.0-1.0 range
@@ -223,20 +240,32 @@ for i, test_item in enumerate(test_examples, 1):
     try:
         result = optimized_program(paragraph=paragraph, target_company=target_company)
         
+        # Parse predicted JSON
+        pred_json_str = getattr(result, 'json_output', '{}')
+        # Try to extract JSON if mixed with other text
+        json_match = re.search(r'\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}', pred_json_str, re.DOTALL)
+        if json_match:
+            pred_json_str = json_match.group(0)
+        
+        try:
+            predicted_json = json.loads(pred_json_str)
+        except json.JSONDecodeError:
+            predicted_json = {}
+        
         # Check if all fields match
-        fields = ['buyer', 'buyer_representative', 'seller', 'seller_representative', 
-                  'third_party_representation', 'target_company_mentioned']
+        fields = ['Buyer', 'Buyer Representative', 'Seller', 'Seller Representative', 
+                  'Third-Party Representation', 'Target Company Mentioned']
         all_match = True
         
         for field in fields:
             expected_val = expected[field].strip()
-            predicted_val = getattr(result, field, "").strip()
+            predicted_val = str(predicted_json.get(field, "")).strip()
             
             # Flexible matching for "Not stated"
             if expected_val == "Not stated":
                 if predicted_val.lower() not in ["not stated", "none", "n/a", ""]:
                     all_match = False
-            elif predicted_val != expected_val:
+            elif predicted_val.lower() != expected_val.lower():
                 all_match = False
         
         if all_match:
@@ -248,8 +277,8 @@ for i, test_item in enumerate(test_examples, 1):
         print(f"   Paragraph: {paragraph[:200]}{'...' if len(paragraph) > 200 else ''}")
         for field in fields:
             expected_val = expected[field]
-            predicted_val = getattr(result, field, 'N/A')
-            match_indicator = "✓" if expected_val.strip().lower() == str(predicted_val).strip().lower() else "✗"
+            predicted_val = predicted_json.get(field, 'N/A')
+            match_indicator = "✓" if str(expected_val).strip().lower() == str(predicted_val).strip().lower() else "✗"
             print(f"   {match_indicator} {field}: Expected '{expected_val}' | Got '{predicted_val}'")
         
     except Exception as e:
@@ -259,9 +288,22 @@ print("\n" + "=" * 60)
 print(f"📊 Test Results: {correct}/{total} correct ({correct/total*100:.1f}%)")
 print("=" * 60)
 
-# Inspect the last prompt sent to the student model
-print("\n🔍 Inspecting the last prompt sent to the Student LLM:")
-print("=" * 60)
+# Extract the complete production prompt using named_predictors()
+print("\n" + "=" * 80)
+print("📋 EXTRACTING COMPLETE PRODUCTION PROMPT")
+print("=" * 80)
+
+# 1. Print the instructions and demos from the optimized predictor
+for name, pred in optimized_program.named_predictors():
+    print(f"\nPredictor: {name}")
+    print("-" * 40)
+    print(f"Instructions: {pred.signature.instructions}")
+    print(f"Number of Few-Shot Examples (Demos): {len(pred.demos)}")
+    print("-" * 40)
+    
+# 2. Inspect the history of the student LLM to see the EXACT full prompt sent
+print("\n👀 VIEWING LAST ACTUAL LLM PROMPT (What was sent to the API)")
+print("=" * 80)
 student_llm.inspect_history(n=1)
-print("=" * 60)
+print("=" * 80)
 

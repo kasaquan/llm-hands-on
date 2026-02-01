@@ -54,8 +54,9 @@ class AggregateResults(dspy.Signature):
 class AggregationModule(dspy.Module):
     def __init__(self):
         super().__init__()
-        # Use ChainOfThought for better reasoning on consolidation logic
-        self.aggregator = dspy.ChainOfThought(AggregateResults)
+        # Use dspy.Predict instead of ChainOfThought to avoid reasoning output
+        # The online eval system expects direct JSON output without reasoning
+        self.aggregator = dspy.Predict(AggregateResults)
     
     def forward(self, paragraph_analyses):
         # LLM outputs JSON directly - no post-processing needed
@@ -195,24 +196,26 @@ for i, example in enumerate(eval_set, 1):
             
         print(f"{status} Test {i}/{total} (Score: {score:.2f})")
         
-        # Detailed comparison for failures
-        if score < 1.0:
+        # Extract JSON from prediction more robustly
+        try:
+            expected_json = json.loads(example.json_output)
+            
+            pred_json_str = getattr(pred, 'json_output', '{}')
+            # Try to find JSON block if mixed with text
+            import re
+            json_match = re.search(r'\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}', pred_json_str, re.DOTALL)
+            if json_match:
+                pred_json_str = json_match.group(0)
+            
             try:
-                expected_json = json.loads(example.json_output)
-                
-                # Extract JSON from prediction more robustly
-                pred_json_str = getattr(pred, 'json_output', '{}')
-                # Try to find JSON block if mixed with text
-                import re
-                json_match = re.search(r'\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}', pred_json_str, re.DOTALL)
-                if json_match:
-                    pred_json_str = json_match.group(0)
-                
-                try:
-                    pred_json = json.loads(pred_json_str)
-                except json.JSONDecodeError:
-                    pred_json = {"error": "Could not parse JSON", "raw": pred_json_str}
+                pred_json = json.loads(pred_json_str)
+            except json.JSONDecodeError:
+                pred_json = {"error": "Could not parse JSON", "raw": pred_json_str}
 
+            print(f"   Predicted: {json.dumps(pred_json)}")
+            
+            # Detailed comparison for failures
+            if score < 1.0:
                 print("   ⚠️  Mismatch details:")
                 required_keys = ['buyer_firm', 'seller_firm', 'third_party', 'contains_target_firm']
                 for key in required_keys:
@@ -224,10 +227,9 @@ for i, example in enumerate(eval_set, 1):
                     else:
                         print(f"      ✅ {key}: '{exp_val}'")
                         
-            except Exception as parse_err:
-                print(f"   ⚠️  Error parsing for comparison: {parse_err}")
-                print(f"   Expected: {example.json_output}")
-                print(f"   Predicted: {getattr(pred, 'json_output', 'No output')}")
+        except Exception as parse_err:
+            print(f"   ⚠️  Error parsing: {parse_err}")
+            print(f"   Predicted Raw: {getattr(pred, 'json_output', 'No output')}")
 
     except Exception as e:
         print(f"❌ Error with test {i}: {e}")

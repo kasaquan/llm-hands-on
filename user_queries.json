@@ -229,7 +229,7 @@
   },
   {
     "query": "Does the document reference Splunk Inc.?",
-    "expected_output": "The target company is Splunk Inc."
+    "expected_output": "The target company is Splunk Inc.."
   },
   {
     "query": "What's the weather forecast for tomorrow?",
@@ -405,7 +405,7 @@
   },
   {
     "query": "Is there any reference to Nio Inc. in this contract?",
-    "expected_output": "The target company is Nio Inc."
+    "expected_output": "The target company is Nio Inc.."
   },
   {
     "query": "What are the antitrust considerations?",
