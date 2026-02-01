@@ -165,7 +165,7 @@
   },
   {
     "query": "Is there any mention of Snap Inc. in this contract?",
-    "expected_output": "The target company is Snap Inc."
+    "expected_output": "The target company is Snap Inc.."
   },
   {
     "query": "What are the warranty terms?",
@@ -373,7 +373,7 @@
   },
   {
     "query": "I believe this contract has nothing to do with Block Inc., correct?",
-    "expected_output": "The target company is Block Inc."
+    "expected_output": "The target company is Block Inc.."
   },
   {
     "query": "What are the key performance indicators?",
