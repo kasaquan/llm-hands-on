@@ -41,21 +41,18 @@ if not openai_api_key:
 student_llm = dspy.LM(model="openai/gpt-4o-mini", api_key=openai_api_key, temperature=0.2)
 
 # The "Architect" (Smart, Expensive)
-teacher_llm = dspy.LM(model="openai/gpt-4o", api_key=openai_api_key)
+teacher_llm = dspy.LM(model="openai/gpt-5.2", api_key=openai_api_key)
 
 # Define the signature for relevance checking
 class RelevanceCheck(dspy.Signature):
     """Determines if the user's query mentions any target company.
-
-    1. If a target company is mentioned, output: 'The target company is [Company Name].'
-    2. If no target company is found, you MUST output EXACTLY:
-    <user_message>Query is not relevant to the intended task.</user_message>
-    
-    IMPORTANT: Do not miss the <user_message> tags in the negative case.
+    1. If no target company is found, respond with a message wrapped in <user_message></user_message> XML tags to inform the user that the query is irrelevant to this task.
+       Example: <user_message>Query is not relevant to the intended task.</user_message>
+    2. If the query contains a target company, respond with a formatted acknowledgment of the identified target company: 'The target company is [Company Name].'
     """
     
     query = dspy.InputField(desc="The user's query about a contract")
-    output = dspy.OutputField(desc="The final answer. Ensure exact XML format for negative cases.")
+    output = dspy.OutputField(desc="The final answer. Use predefined <user_message> for negative cases.")
 
 # Create training examples from the training data (60%)
 training_examples = []
@@ -101,7 +98,9 @@ for item in test_data:
 class RelevanceModule(dspy.Module):
     def __init__(self):
         super().__init__()
-        self.relevance_checker = dspy.ChainOfThought(RelevanceCheck)
+        # Use dspy.Predict instead of ChainOfThought to avoid reasoning output
+        # The online eval system expects direct output without reasoning
+        self.relevance_checker = dspy.Predict(RelevanceCheck)
     
     def forward(self, query):
         result = self.relevance_checker(query=query)            

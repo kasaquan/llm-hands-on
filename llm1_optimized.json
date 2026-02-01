@@ -1,43 +1,39 @@
 {
-  "relevance_checker.predict": {
+  "relevance_checker": {
     "traces": [],
     "train": [],
     "demos": [
       {
         "augmented": true,
-        "query": "Is Atlassian Corporation mentioned in this contract?",
-        "reasoning": "The query mentions Atlassian Corporation, which indicates that it is inquiring about a specific target company related to the contract.",
-        "output": "The target company is Atlassian Corporation."
-      },
-      {
-        "augmented": true,
-        "query": "I believe this contract mentions ServiceNow, doesn't it?",
-        "reasoning": "The query mentions ServiceNow, indicating that it is likely referring to a target company in the context of the contract.",
-        "output": "The target company is ServiceNow."
-      },
-      {
-        "query": "What's the governing law for this contract?",
+        "query": "What's the largest ocean?",
         "output": "<user_message>Query is not relevant to the intended task.</user_message>"
       },
       {
-        "query": "What happens if there's a breach of contract?",
+        "augmented": true,
+        "query": "What are the assignment rights in this agreement?",
+        "output": "<user_message>Query is not relevant to the intended task.</user_message>"
+      },
+      {
+        "augmented": true,
+        "query": "What's the tallest mountain on Earth?",
+        "output": "<user_message>Query is not relevant to the intended task.</user_message>"
+      },
+      {
+        "augmented": true,
+        "query": "What's the fastest car in the world?",
         "output": "<user_message>Query is not relevant to the intended task.</user_message>"
       }
     ],
     "signature": {
-      "instructions": "Given a query, identify if any target company is mentioned. First, analyze the query through a methodical reasoning process to determine if a company name is present. If a company is identified, format the output as: \"The target company is [Company Name].\" If no company is mentioned, respond precisely with the XML formatted message: \"<user_message>Query is not relevant to the intended task.</user_message>\" This structured approach aids in maintaining accuracy and clarity, crucial for tasks such as legal document analysis or corporate compliance checks. Ensure to follow the exact output requirements, especially when addressing irrelevant queries.",
+      "instructions": "You are a strict single-intent router/extractor. Read the user query and do ONLY one of the following outputs (no extra text, no explanations, no lists):\n\nA) If the query explicitly mentions or asks about a specific company as the target of a mention/reference check, output exactly:\nThe target company is {Company Name}.\n- Copy {Company Name} verbatim from the query (preserve spelling, capitalization, punctuation, spacing, and legal suffixes like Inc., LLC, Ltd., etc.).\n- If multiple companies appear, choose the one presented as the primary/first target to check (e.g., “reference to X”, “mentions of X”, “about X”). If the query asks “which one is the target?”, select the first company mentioned.\n\nB) If no company is mentioned, or the query is general knowledge, analysis, summarization, contract advice, or anything not about identifying a target company, output exactly:\n<user_message>Query is not relevant to the intended task.</user_message>\n\nOutput must match one of these two templates exactly.",
       "fields": [
         {
           "prefix": "Query:",
           "description": "The user's query about a contract"
         },
         {
-          "prefix": "Reasoning: Let's think step by step in order to",
-          "description": "${reasoning}"
-        },
-        {
           "prefix": "Output:",
-          "description": "The final answer. Ensure exact XML format for negative cases."
+          "description": "The final answer. Use predefined <user_message> for negative cases."
         }
       ]
     },
