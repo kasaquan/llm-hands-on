@@ -1,6 +1,6 @@
 [
     {
-        "target_company": "The target company is Kirkland & Ellis LLP.",
+        "user_query": "Is Kirkland & Ellis LLP mentioned?",
         "documents": [
             "This Stock and Asset Purchase Agreement is entered into as of October 28, 2021, among Purolite Corporation, a Delaware corporation, along with Stefan E. Brodie and Don B. Brodie (collectively referred to as the Sellers), and Ecolab Inc., a Delaware corporation, as the Purchaser. Additionally, Gibson, Dunn & Crutcher LLP, as an independent third-party representative, is engaged for specific advisory roles outlined in this Agreement.",
             "This Agreement shall be governed by and construed in accordance with the internal laws of the State of Delaware, without giving effect to any choice or conflict of law provision. Each clause within this Agreement shall be interpreted independently, and the invalidity of one clause shall not affect the enforceability of the remaining provisions. Headings are for convenience only and shall not affect the interpretation of this Agreement. Nothing herein shall be construed as limiting or waiving any rights or obligations under applicable law unless expressly stated.",
@@ -49,7 +49,7 @@
         }
     },
     {
-        "target_company": "Does this have anything to do with Meta?",
+        "user_query": "Does this have anything to do with Meta?",
         "documents": [
             "This Stock and Asset Purchase Agreement is entered into as of October 28, 2021, among Purolite Corporation, a Delaware corporation, along with Stefan E. Brodie and Don B. Brodie (collectively referred to as the Sellers), and Ecolab Inc., a Delaware corporation, as the Purchaser. Additionally, Gibson, Dunn & Crutcher LLP, as an independent third-party representative, is engaged for specific advisory roles outlined in this Agreement.",
             "This Agreement shall be governed by and construed in accordance with the internal laws of the State of Delaware, without giving effect to any choice or conflict of law provision. Each clause within this Agreement shall be interpreted independently, and the invalidity of one clause shall not affect the enforceability of the remaining provisions. Headings are for convenience only and shall not affect the interpretation of this Agreement. Nothing herein shall be construed as limiting or waiving any rights or obligations under applicable law unless expressly stated.",
@@ -98,7 +98,7 @@
         }
     },
     {
-        "target_company": "The target company is Sidley.",
+        "user_query": "Is Sidley in this agreement?",
         "documents": [
             "This Asset Purchase Agreement dated as of February 11, 2015 is entered into by and between: (1) ANIXTER INC., a Delaware corporation (the \"Seller\"); and (2) AIP/FASTENERS LLC, a Delaware limited liability company (the \"Buyer\" and, collectively with the Seller, the \"Parties\" and each a \"Party\"). WHEREAS, the Seller and the Selling Affiliates are engaged, through the Seller's OEM Supply – Fasteners business segment, in the business of distributing and manufacturing fastener hardware and components to or for original equipment manufacturers.",
             "This Agreement shall be governed by, and construed in accordance with, the Laws of the State of Delaware applicable to contracts executed in and to be performed in that State. All actions and proceedings arising out of or relating to this Agreement shall be heard and determined exclusively in any Delaware Chancery Court. The Parties hereby irrevocably submit to the exclusive jurisdiction of such courts in any such action or proceeding and irrevocably waive the defense of an inconvenient forum to the maintenance of any such action or proceeding.",
@@ -145,6 +145,55 @@
             "third_party": "Not stated",
             "contains_target_firm": true
         }
+    },{
+
+    "user_query": "How is the weather today?",
+    "documents": [
+        "This Asset Purchase Agreement dated as of February 11, 2015 is entered into by and between: (1) ANIXTER INC., a Delaware corporation (the \"Seller\"); and (2) AIP/FASTENERS LLC, a Delaware limited liability company (the \"Buyer\" and, collectively with the Seller, the \"Parties\" and each a \"Party\"). WHEREAS, the Seller and the Selling Affiliates are engaged, through the Seller's OEM Supply – Fasteners business segment, in the business of distributing and manufacturing fastener hardware and components to or for original equipment manufacturers.",
+        "This Agreement shall be governed by, and construed in accordance with, the Laws of the State of Delaware applicable to contracts executed in and to be performed in that State. All actions and proceedings arising out of or relating to this Agreement shall be heard and determined exclusively in any Delaware Chancery Court. The Parties hereby irrevocably submit to the exclusive jurisdiction of such courts in any such action or proceeding and irrevocably waive the defense of an inconvenient forum to the maintenance of any such action or proceeding.",
+        "All notices, requests and other communications to any Party hereunder shall be in writing and shall be given:\n  If to the Seller, to:\n  Anixter Inc.\n  2301 Patriot Boulevard\n  Glenview, Illinois 60026\n  Attention: General Counsel\n  with a copy (which shall not constitute notice) to:\n  Sidley Austin LLP\n  One South Dearborn Street\n  Chicago, Illinois 60603\n  Attention: Gary Gerstman; Scott Williams\n  If to the Buyer, to:\n  AIP/Fasteners LLC\n  c/o American Industrial Partners\n  450 Lexington Avenue, 40th Floor\n  New York, New York 10017\n  Attention: John Becker\n  with a copy (which shall not constitute notice) to:\n  Kirkland & Ellis LLP\n  601 Lexington Avenue\n  New York, New York 10022\n  Attention: Joshua Kogan; Daniel Wolf",
+        "All references to Preamble, Recitals, Sections, Articles, Exhibits, Schedules or Disclosure Schedules are to the Preamble, Recitals, Sections, Articles, Exhibits, Schedules or Disclosure Schedules of or to this Agreement. Words in the singular include the plural and vice versa. The Parties agree that no provision of this Agreement will be interpreted in favor of, or against, any of the Parties by reason of the extent to which any such Party or its counsel participated in the drafting thereof."
+    ],
+    "expected_output_2": [
+        {
+            "Buyer": "AIP/FASTENERS LLC",
+            "Buyer Representative": "Not stated",
+            "Seller": "ANIXTER INC.",
+            "Seller Representative": "Not stated",
+            "Third-Party Representation": "Not stated",
+            "Target Company Mentioned": "No"
+        },
+        {
+            "Buyer": "Not stated",
+            "Buyer Representative": "Not stated",
+            "Seller": "Not stated",
+            "Seller Representative": "Not stated",
+            "Third-Party Representation": "Not stated",
+            "Target Company Mentioned": "No"
+        },
+        {
+            "Buyer": "AIP/Fasteners LLC",
+            "Buyer Representative": "Kirkland & Ellis LLP",
+            "Seller": "Anixter Inc.",
+            "Seller Representative": "Sidley Austin LLP",
+            "Third-Party Representation": "Not stated",
+            "Target Company Mentioned": "Yes"
+        },
+        {
+            "Buyer": "Not stated",
+            "Buyer Representative": "Not stated",
+            "Seller": "Not stated",
+            "Seller Representative": "Not stated",
+            "Third-Party Representation": "Not stated",
+            "Target Company Mentioned": "No"
+        }
+    ],
+    "expected_output_3": {
+        "buyer_firm": "Kirkland & Ellis LLP",
+        "seller_firm": "Sidley Austin LLP",
+        "third_party": "Not stated",
+        "contains_target_firm": false
     }
+}
 
 ]

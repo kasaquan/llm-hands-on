@@ -37,34 +37,6 @@ def run_llm(system_prompt, user_message):
         print(f"Error during OpenAI API call: {str(e)}")
         return ""
 
-def parse_llm2_output_to_json(text):
-    """
-    Parses the custom [[ ## field ## ]] format from LLM2 and converts it 
-    to the JSON format expected by LLM3's few-shot examples.
-    """
-    field_map = {
-        "buyer": "Buyer",
-        "buyer_representative": "Buyer Representative",
-        "seller": "Seller",
-        "seller_representative": "Seller Representative",
-        "third_party_representation": "Third-Party Representation",
-        "target_company_mentioned": "Target Company Mentioned"
-    }
-    
-    data = {}
-    
-    # Simple parsing logic
-    # We look for [[ ## key ## ]]\nvalue
-    pattern = r"\[\[ ## (.*?) ## \]\]\s*(.*?)(?=\s*\[\[|$)"
-    matches = re.findall(pattern, text, re.DOTALL)
-    
-    parsed_fields = {k: v.strip() for k, v in matches}
-    
-    for llm_key, json_key in field_map.items():
-        data[json_key] = parsed_fields.get(llm_key, "Not stated")
-        
-    return json.dumps(data)
-
 # 3. Load Data
 with open('whole_flow_examples.json', 'r') as f:
     examples = json.load(f)
@@ -81,15 +53,10 @@ for i, example in enumerate(examples, 1):
     print(f"🧪 Test Case {i}/{total_count}")
     print("="*60)
 
-    # --- Synthesize Query ---
-    target_company_str = example['target_company']
-    if "The target company is" in target_company_str:
-        company = target_company_str.replace("The target company is", "").strip(" .")
-        query = f"Is {company} present in the agreement?"
-    else:
-        query = "Is there a target company in the agreement?"
+    # --- Get Query ---
+    query = example['user_query']
     
-    print(f"📝 Generated Query: {query}")
+    print(f"📝 User Query: {query}")
 
     # --- Step 1: LLM1 (Relevance) ---
     print("\n[Step 1] Running LLM1 (Relevance)...")
@@ -104,11 +71,11 @@ for i, example in enumerate(examples, 1):
     # --- Step 2: LLM2 (Paragraph Analysis) ---
     print("\n[Step 2] Running LLM2 (Paragraph Analysis)...")
     docs = example['documents']
-    paragraph_analyses = []
+    output2 = ""
     
     for j, doc in enumerate(docs, 1):
-        # Format user message for LLM2
-        user_msg_2 = f"Target company context:\n{output1}\n\nParagraph:\n{doc}"
+        # Format user message for LLM2 (matching HuggingFace format exactly)
+        user_msg_2 = f"Target company context: \n{output1} \n\n Paragraph:\n {doc}"
         
         if VERBOSE:
             print(f"\n   --- Paragraph {j} ---")
@@ -123,31 +90,17 @@ for i, example in enumerate(examples, 1):
         else:
             print(f"   Paragraph {j} Output: {pred2[:100]}...") # Truncate for display
         
-        # Check if output is already JSON or needs parsing
-        try:
-            # Try to parse as JSON directly first
-            json.loads(pred2)
-            json_analysis = pred2
-            if VERBOSE:
-                print(f"   ✅ Output is valid JSON")
-        except json.JSONDecodeError:
-            # Fall back to parsing [[ ## field ## ]] format
-            json_analysis = parse_llm2_output_to_json(pred2)
-            if VERBOSE:
-                print(f"   ⚠️ Parsed from field format to JSON:")
-                print(f"   {json_analysis}")
-        
-        paragraph_analyses.append(json_analysis)
+        # Concatenate outputs directly (matching HuggingFace behavior)
+        output2 += "\n" + pred2
 
     # --- Step 3: LLM3 (Aggregation) ---
     print("\n[Step 3] Running LLM3 (Aggregation)...")
-    formatted_analyses = "\n".join(paragraph_analyses)
-    user_msg_3 = f"Extracted information:\n{formatted_analyses}"
+    output2 = output2.strip()
+    user_msg_3 = f"Extracted information: \n{output2}"
     
     if VERBOSE:
         print(f"   📥 Input to LLM3:")
-        for idx, analysis in enumerate(paragraph_analyses, 1):
-            print(f"      [{idx}] {analysis}")
+        print(f"   {output2[:500]}{'...' if len(output2) > 500 else ''}")
     
     output3 = run_llm(system_prompt_3, user_msg_3)
     
@@ -176,18 +129,12 @@ for i, example in enumerate(examples, 1):
         print(f"   📋 Expected Output: {json.dumps(expected_json)}")
     
     try:
-        # Robust JSON extraction
-        json_match = re.search(r'\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}', output3_json_str, re.DOTALL)
-        if json_match:
-            output3_json_str = json_match.group(0)
-            
         parsed_answer = json.loads(output3_json_str)
     except json.JSONDecodeError as e:
         print(f"   ❌ Incorrect (Invalid JSON: {e})")
         failed_cases.append({
             "case": i,
             "query": query,
-            "target": target_company_str,
             "incorrect_keys": ["JSON_PARSE_ERROR"],
             "expected": expected_json,
             "got": {"error": str(e), "raw": output3_json_str[:200]}
@@ -202,41 +149,26 @@ for i, example in enumerate(examples, 1):
         failed_cases.append({
             "case": i,
             "query": query,
-            "target": target_company_str,
             "incorrect_keys": ["MISSING_KEYS: " + ", ".join(missing_keys)],
             "expected": expected_json,
             "got": parsed_answer
         })
         continue
 
-    # Compare values
+    # Compare values (direct comparison matching HuggingFace grading)
     incorrect_values = []
     for key in required_keys:
-        val_pred = parsed_answer.get(key)
-        val_exp = expected_json.get(key)
-        
-        # Normalize for comparison
-        str_pred = str(val_pred).strip().lower()
-        str_exp = str(val_exp).strip().lower()
-        
-        # Handle "Not stated" variations
-        if str_exp == "not stated" and str_pred in ["not stated", "none", "n/a", ""]:
-            continue
-            
-        if str_pred != str_exp:
+        if parsed_answer[key] != expected_json[key]:
             incorrect_values.append(key)
 
     if incorrect_values:
         print(f"   ❌ Incorrect (Values mismatch)")
         for key in required_keys:
-            val_pred = parsed_answer.get(key)
-            val_exp = expected_json.get(key)
             status = "❌" if key in incorrect_values else "✅"
-            print(f"      {status} {key}: Expected '{val_exp}' | Got '{val_pred}'")
+            print(f"      {status} {key}: Expected '{expected_json[key]}' | Got '{parsed_answer[key]}'")
         failed_cases.append({
             "case": i,
             "query": query,
-            "target": target_company_str,
             "incorrect_keys": incorrect_values,
             "expected": expected_json,
             "got": parsed_answer
@@ -254,7 +186,7 @@ if failed_cases and VERBOSE:
     print("📋 FAILED CASES SUMMARY")
     print("="*60)
     for fc in failed_cases:
-        print(f"\n❌ Case {fc['case']}: {fc['target']}")
+        print(f"\n❌ Case {fc['case']}")
         print(f"   Query: {fc['query']}")
         print(f"   Incorrect fields: {', '.join(fc['incorrect_keys'])}")
         print(f"   Expected: {json.dumps(fc['expected'])}")

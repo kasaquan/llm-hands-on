@@ -27,7 +27,8 @@ class RelevanceCheck(dspy.Signature):
 class RelevanceModule(dspy.Module):
     def __init__(self):
         super().__init__()
-        self.relevance_checker = dspy.ChainOfThought(RelevanceCheck)
+        # Use dspy.Predict instead of ChainOfThought to avoid reasoning output
+        self.relevance_checker = dspy.Predict(RelevanceCheck)
     
     def forward(self, query):
         result = self.relevance_checker(query=query)            
@@ -39,23 +40,18 @@ class AnalyzeParagraph(dspy.Signature):
     Analyzes a paragraph from a legal file to extract required specific entities relative to the target company.
     If an entity is not mentioned, use 'Not stated'.
     If an entity does not have a name, use 'Not stated', don't use 'the Company', 'the Purchaser', 'the Investor', etc.
+    Output ONLY valid JSON with no additional text.
     """
     paragraph = dspy.InputField(desc="One paragraph from the contract")
     target_company = dspy.InputField(desc="The identified target company from Step 1")
     
-    buyer = dspy.OutputField(desc="Name of the Buyer company")
-    buyer_representative = dspy.OutputField(desc="Law firm or representative for the Buyer")
-    
-    seller = dspy.OutputField(desc="Name of the Seller company")
-    seller_representative = dspy.OutputField(desc="Law firm or representative for the Seller")
-    
-    third_party_representation = dspy.OutputField(desc="Any third-party law firms or advisory roles mentioned")
-    target_company_mentioned = dspy.OutputField(desc="Boolean: 'Yes' or 'No' indicating if target is explicitly mentioned")
+    json_output = dspy.OutputField(desc='A valid JSON object with exactly these keys: {"Buyer": "string", "Buyer Representative": "string", "Seller": "string", "Seller Representative": "string", "Third-Party Representation": "string", "Target Company Mentioned": "Yes or No"}. Output ONLY the JSON, no other text.')
 
 class ParagraphAnalysisModule(dspy.Module):
     def __init__(self):
         super().__init__()
-        self.analyzer = dspy.ChainOfThought(AnalyzeParagraph)
+        # Use dspy.Predict instead of ChainOfThought to avoid reasoning output
+        self.analyzer = dspy.Predict(AnalyzeParagraph)
     
     def forward(self, paragraph, target_company):
         result = self.analyzer(paragraph=paragraph, target_company=target_company)
@@ -74,7 +70,8 @@ class AggregateResults(dspy.Signature):
 class AggregationModule(dspy.Module):
     def __init__(self):
         super().__init__()
-        self.aggregator = dspy.ChainOfThought(AggregateResults)
+        # Use dspy.Predict instead of ChainOfThought to avoid reasoning output
+        self.aggregator = dspy.Predict(AggregateResults)
     
     def forward(self, paragraph_analyses):
         return self.aggregator(paragraph_analyses=paragraph_analyses)
@@ -101,7 +98,7 @@ except Exception as e:
 
 try:
     llm2 = ParagraphAnalysisModule()
-    llm2.load("llm2_optimized.json")
+    llm2.load("llm2_optimized_3.json")
     print("✅ LLM2 loaded")
 except Exception as e:
     print(f"⚠️  LLM2 load failed: {e}")
@@ -167,18 +164,30 @@ for i, example in enumerate(examples, 1):
         try:
             pred2 = llm2(paragraph=doc, target_company=output1)
             
-            # Print the raw prediction for debugging/verification
-            print(f"   Paragraph {j} Output: {pred2}")
+            # Get JSON output from prediction
+            json_output = getattr(pred2, 'json_output', '{}')
+            print(f"   Paragraph {j} Output: {json_output}")
             
-            # Simply use the prediction object directly (or its string representation)
-            # similar to how the original app concatenates outputs
-            # The original app does: output2 += "\n" + response.choices[0].message.content.strip()
-            # Here, pred2 is the result from the dspy module.
-            paragraph_analyses.append(str(pred2))
+            # Parse the JSON to reformat it for LLM3 (which expects the old format)
+            try:
+                parsed = json.loads(json_output)
+                # Reformat to match LLM3's expected input format
+                formatted = json.dumps({
+                    "Buyer": parsed.get("Buyer", "Not stated"),
+                    "Buyer Representative": parsed.get("Buyer Representative", "Not stated"),
+                    "Seller": parsed.get("Seller", "Not stated"),
+                    "Seller Representative": parsed.get("Seller Representative", "Not stated"),
+                    "Third-Party Representation": parsed.get("Third-Party Representation", "Not stated"),
+                    "Target Company Mentioned": parsed.get("Target Company Mentioned", "No")
+                })
+                paragraph_analyses.append(formatted)
+            except json.JSONDecodeError:
+                # If parsing fails, use the raw output
+                paragraph_analyses.append(json_output)
             
         except Exception as e:
             print(f"   ❌ Error in LLM2 (Para {j}): {e}")
-            paragraph_analyses.append("")
+            paragraph_analyses.append("{}")
 
     # --- Step 3: LLM3 ---
     print("\n[Step 3] Running LLM3 (Aggregation)...")

@@ -1,175 +1,66 @@
-Your input fields are:
-1. `paragraph` (str): One paragraph from the contract
-2. `target_company` (str): The identified target company from Step 1
-Your output fields are:
-1. `reasoning` (str): 
-2. `buyer` (str): Name of the Buyer company
-3. `buyer_representative` (str): Law firm or representative for the Buyer
-4. `seller` (str): Name of the Seller company
-5. `seller_representative` (str): Law firm or representative for the Seller
-6. `third_party_representation` (str): Any third-party law firms or advisory roles mentioned
-7. `target_company_mentioned` (str): Boolean: 'Yes' or 'No' indicating if target is explicitly mentioned
+Extract specific legal entities from the given paragraph concerning the target company. Identify and return the following details in a structured JSON format:
 
-All your responses must be strictly structured in the following way:
+1. The name of the Buyer and Buyer's representative law firm.
+2. The name of the Seller and Seller's representative law firm.
+3. Names of any third-party law firms present.
+4. Indicate whether the target company is mentioned in the paragraph.
 
-[[ ## reasoning ## ]]
-{reasoning}
+If an entity isn't mentioned, state it as 'Not stated'. Ensure entities without explicit names are also labeled as 'Not stated', avoiding terms like 'the Company' or 'the Purchaser'. Deliver the output exclusively as valid JSON without additional text or commentary.
 
-[[ ## buyer ## ]]
-{buyer}
-
-[[ ## buyer_representative ## ]]
-{buyer_representative}
-
-[[ ## seller ## ]]
-{seller}
-
-[[ ## seller_representative ## ]]
-{seller_representative}
-
-[[ ## third_party_representation ## ]]
-{third_party_representation}
-
-[[ ## target_company_mentioned ## ]]
-{target_company_mentioned}
-
-[[ ## completed ## ]]
-
-In adhering to this structure, your objective is: 
-        You are tasked with analyzing high-stakes transactional legal documents to ensure precise extraction of specific entities related to a designated target company. Using robust reasoning skills, process the given paragraph from a legal agreement to accurately identify involved parties such as buyers, sellers, their representatives, and any third-party entities. Apply a structured approach to handle cases where entities are not explicitly named, replacing them with 'Not stated'. Additionally, verify if the specified target company is mentioned within the paragraph. This task is crucial for maintaining the accuracy and integrity of high-value mergers and acquisitions. Be meticulous in your entity recognition, as your output data will directly support legal compliance, due diligence processes, and the automation of contract analysis. Make sure to adhere closely to these instructions and utilize a step-by-step reasoning method to provide clear and detailed outputs, including reasoning, buyer, buyer representative, seller, seller representative, third-party representation, and whether the target company is mentioned, each explicitly defined.
+JSON Output Schema:
+{"Buyer": "string", "Buyer Representative": "string", "Seller": "string", "Seller Representative": "string", "Third-Party Representation": "string", "Target Company Mentioned": "Yes or No"}
 
 ---
 
-User message:
-Target company context: 
-The target company is Google. 
+Target company context:
+The target company is Apple Inc.
 
- Paragraph:
- At the Closing, the Company shall sell, transfer, assign and deliver to Buyer, and Buyer shall purchase, accept, assume and receive, all right, title and interest in and to the Purchased Assets as of the Closing whether tangible or intangible, personal and located in the United States and possessed by the Company, free and clear of any lien, mortgage, security interest or other encumbrance. The Purchased Assets include all customer deposits for weddings, albums, and associated products and services received by the Company prior to the Closing that relate to the Transferred Contracts, all accounts receivable relating to Transferred Contracts, and all rights in, to and under the Contracts set forth on the schedules, including all open customer orders set forth thereon and all receivables due after the Closing Date pursuant to such Contracts.
+Paragraph:
+At the Initial Closing, the Company shall sell to the Purchasers identified on Schedule I as "Initial Purchasers" (the "Initial Purchasers"), and the Initial Purchasers shall purchase from the Company, an aggregate of 187,688 Shares for an aggregate purchase price of $5.0 million. All references to "$" in this Agreement will mean US$. The purchase and sale of each Initial Purchaser's Shares at the Initial Closing shall occur simultaneously.
 
-Assistant message:
-[[ ## reasoning ## ]]
-Not supplied for this particular example. 
-
-[[ ## buyer ## ]]
-Not stated
-
-[[ ## buyer_representative ## ]]
-Not stated
-
-[[ ## seller ## ]]
-Not stated
-
-[[ ## seller_representative ## ]]
-Not stated
-
-[[ ## third_party_representation ## ]]
-Not stated
-
-[[ ## target_company_mentioned ## ]]
-No
-
-[[ ## completed ## ]]
+Output:
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
 
 ---
 
-User message:
-Target company context: 
-The target company is Davis Polk & Wardwell LLP. 
+Target company context:
+The target company is Google.
 
- Paragraph:
- WHEREAS, Seller's wholly owned Subsidiary, Tucows (Delaware) Inc., a Delaware corporation, is the sole shareholder of Ting, Inc., a Delaware corporation ("Ting"); WHEREAS, Seller desires to sell (or cause to be sold), and Buyer desires to purchase, certain assets and Buyer is willing to assume certain liabilities, in each case in connection with the Business upon the terms and subject to the conditions set forth herein; and WHEREAS, concurrently with the entry into this Agreement, the Parties or their respective Affiliates have entered into the Ancillary Agreements, Seller and each of the Seller Entities have entered into and delivered the Seller Release and Seller has delivered a duly executed IRS Form W-9 with respect to Seller and each Seller Entity.
+Paragraph:
+As consideration for the Purchased Assets, in addition to the assumption by Buyer of the Assumed Liabilities, Buyer will pay to the Company (i) an amount equal to the 20% of the aggregate contract amount of all Transferred Contracts plus (ii) Sixty Thousand Dollars ($60,000.00). The 20% of the aggregate contract amount of all Transferred Contracts pursuant to this Section will be credited against the amount to be paid by the Company. The Sixty Thousand Dollars ($60,000) will be placed in an escrow account, the terms of which shall be governed by the Escrow Agreement by and between the parties, which shall hold said funds until six (6) months after Closing.
 
-Assistant message:
-[[ ## reasoning ## ]]
-Not supplied for this particular example. 
-
-[[ ## buyer ## ]]
-Not stated
-
-[[ ## buyer_representative ## ]]
-Not stated
-
-[[ ## seller ## ]]
-TUCOWS INC.
-
-[[ ## seller_representative ## ]]
-Not stated
-
-[[ ## third_party_representation ## ]]
-Not stated
-
-[[ ## target_company_mentioned ## ]]
-No
-
-[[ ## completed ## ]]
+Output:
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
 
 ---
 
-User message:
-Target company context: 
-The target company is China Risk Finance LLC. 
+Target company context:
+The target company is Amazon.com Inc.
 
- Paragraph:
- No dividend, distribution, redemption, recapitalization or other transaction involving the equity securities of China Risk Finance LLC, or distribution or payment to any of the Members or any of their relatives or Affiliates has occurred. No capital expenditures by the Company or any of the CRF Entities in excess of $500,000 have been made. No tax liability has been incurred except in the ordinary course of business.
+Paragraph:
+The Company and each other Group Company have been duly organized and are validly existing and in good standing under the laws of their respective jurisdictions of organization, are duly qualified to do business and are in good standing in each jurisdiction in which their respective ownership or lease of property or the conduct of their respective businesses requires such qualification, except where the failure to be so qualified or in good standing would not, individually or in the aggregate, reasonably be expected to have a Material Adverse Effect.
 
-Assistant message:
-[[ ## reasoning ## ]]
-The paragraph explicitly mentions "China Risk Finance LLC" as well as "the Company" and "CRF Entities," indicating that the target company is involved in the context of the transactions and financial activities described.
-
-[[ ## buyer ## ]]
-Not stated
-
-[[ ## buyer_representative ## ]]
-Not stated
-
-[[ ## seller ## ]]
-Not stated
-
-[[ ## seller_representative ## ]]
-Not stated
-
-[[ ## third_party_representation ## ]]
-Not stated
-
-[[ ## target_company_mentioned ## ]]
-Yes
-
-[[ ## completed ## ]]
+Output:
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
 
 ---
 
-User message:
-Target company context: 
-The target company is Apple Inc. 
+Target company context:
+The target company is Kirkland & Ellis LLP.
 
- Paragraph:
- After the Initial Closing, the Company may, in its sole discretion, sell, on the same terms and conditions as those contained in this Agreement, up to 3,566,066 additional Series C Preferred Shares (the "Additional Shares"), to one or more purchasers (the "Additional Purchasers"), provided that (i) such subsequent sale is consummated prior to 90 days after the Initial Closing and (ii) each Additional Purchaser shall become a party to the Transaction Agreements by executing and delivering a counterpart signature page thereto.
+Paragraph:
+All references to the singular include the plural and vice versa, and all references to any gender include all genders. The Parties agree that any ambiguities in the language of this Agreement shall not be construed against either Party. Section headings used in this Agreement are for reference only and shall not affect the meaning or interpretation of any provision.
 
-Assistant message:
-[[ ## reasoning ## ]]
-The paragraph discusses the Company's ability to sell additional shares but does not explicitly mention the name of the Company or any specific buyer or seller. The target company, Apple Inc., is not mentioned in the context of this paragraph.
-
-[[ ## buyer ## ]]
-Not stated
-
-[[ ## buyer_representative ## ]]
-Not stated
-
-[[ ## seller ## ]]
-Not stated
-
-[[ ## seller_representative ## ]]
-Not stated
-
-[[ ## third_party_representation ## ]]
-Not stated
-
-[[ ## target_company_mentioned ## ]]
-No
-
-[[ ## completed ## ]]
+Output:
+{"Buyer": "Not stated", "Buyer Representative": "Not stated", "Seller": "Not stated", "Seller Representative": "Not stated", "Third-Party Representation": "Not stated", "Target Company Mentioned": "No"}
 
 ---
 
-Respond with the corresponding output fields, starting with the field `[[ ## reasoning ## ]]`, then `[[ ## buyer ## ]]`, then `[[ ## buyer_representative ## ]]`, then `[[ ## seller ## ]]`, then `[[ ## seller_representative ## ]]`, then `[[ ## third_party_representation ## ]]`, then `[[ ## target_company_mentioned ## ]]`, and then ending with the marker for `[[ ## completed ## ]]`.
+Target company context:
+The target company is Kirkland & Ellis LLP.
+
+Paragraph:
+This Stock and Asset Purchase Agreement is entered into as of October 28, 2021, among Purolite Corporation, a Delaware corporation, along with Stefan E. Brodie and Don B. Brodie (collectively referred to as the Sellers), and Ecolab Inc., a Delaware corporation, as the Purchaser. Additionally, Gibson, Dunn & Crutcher LLP, as an independent third-party representative, is engaged for specific advisory roles outlined in this Agreement.
+
+Output:
+{"Buyer": "Ecolab Inc.", "Buyer Representative": "Not stated", "Seller": "Purolite Corporation", "Seller Representative": "Not stated", "Third-Party Representation": "Gibson, Dunn & Crutcher LLP", "Target Company Mentioned": "No"}
