@@ -1,5 +1,5 @@
 {
-  "aggregator.predict": {
+  "aggregator": {
     "traces": [],
     "train": [],
     "demos": [

@@ -147,6 +147,7 @@
         }
     },{
 
+    "expected_is_irrelevant": true,
     "user_query": "How is the weather today?",
     "documents": [
         "This Asset Purchase Agreement dated as of February 11, 2015 is entered into by and between: (1) ANIXTER INC., a Delaware corporation (the \"Seller\"); and (2) AIP/FASTENERS LLC, a Delaware limited liability company (the \"Buyer\" and, collectively with the Seller, the \"Parties\" and each a \"Party\"). WHEREAS, the Seller and the Selling Affiliates are engaged, through the Seller's OEM Supply – Fasteners business segment, in the business of distributing and manufacturing fastener hardware and components to or for original equipment manufacturers.",
